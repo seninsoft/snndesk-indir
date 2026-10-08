@@ -25,6 +25,7 @@ body { margin: 0; font: 500 15px/1.5 'Plus Jakarta Sans', 'Segoe UI', system-ui,
 input { width: 100%; height: 48px; border-radius: 14px; border: 1.5px solid #d9dfeb; padding: 0 16px; font: inherit; margin-bottom: 12px; }
 input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47,91,255,.12); }
 button { height: 46px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--blue); color: #fff; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(47,91,255,.8); }
+button.danger { background: #e5484d; box-shadow: 0 10px 22px -10px rgba(229,72,77,.8); height: 38px; font-size: 13px; }
 button.ghost { background: rgba(255,255,255,.14); box-shadow: none; height: 36px; font-size: 13px; }
 .err { color: #dc2626; font-weight: 600; min-height: 22px; font-size: 14px; }
 main { padding: 28px 0 60px; }
@@ -73,6 +74,7 @@ td { padding: 9px 0; border-bottom: 1px solid var(--line); } td:last-child { tex
         <tr><td>Son sürüm</td><td id="ver">–</td></tr>
         <tr><td>Sürüm bazında indirme</td><td id="perRel">–</td></tr>
       </table>
+      <div style="margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button id="resetBtn" class="danger">Cihaz sayaçlarını sıfırla</button><span style="color:var(--muted);font-size:12.5px">GitHub indirme sayısı sıfırlanamaz; sunucu sayaçları sıfırlanır.</span></div>
     </div>
   </div>
 </main>
@@ -116,6 +118,15 @@ async function enter() {
     clearInterval(timer); timer = setInterval(() => load().catch(() => {}), 30000);
   } catch (e) { $('err').textContent = e.message; }
 }
+$('resetBtn').onclick = async () => {
+  if (!confirm('Cihaz sayaçları (bugün aktif, toplam, 7 günlük grafik ve bağlantı denemesi) SIFIRLANACAK. Emin misiniz?')) return;
+  try {
+    const r = await fetch(API + '/reset', { method: 'POST', headers: { Authorization: 'Bearer ' + key } });
+    if (!r.ok) throw new Error('Sıfırlanamadı (' + r.status + ')');
+    await load();
+    alert('Sayaçlar sıfırlandı.');
+  } catch (e) { alert(e.message); }
+};
 $('go').onclick = enter;
 $('key').onkeydown = (e) => { if (e.key === 'Enter') enter(); };
 $('out').onclick = () => { sessionStorage.removeItem('k'); location.reload(); };
