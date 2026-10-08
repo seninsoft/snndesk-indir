@@ -52,6 +52,11 @@ img { max-width: 100%; display: block; }
 .hero h1 { margin: 30px auto 20px; font-size: clamp(38px, 6.4vw, 72px); line-height: 1.04; letter-spacing: -.04em; font-weight: 800; max-width: 920px; }
 .hero h1 em { font-style: normal; background: linear-gradient(90deg, #8fd0ff, #b9a8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero p.lead { margin: 0 auto 34px; max-width: 660px; font-size: clamp(16px, 1.9vw, 19px); color: rgba(255,255,255,.82); }
+.freerow { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: -6px 0 30px; }
+.freerow span { padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.24); font-weight: 700; font-size: 13.5px; backdrop-filter: blur(6px); }
+.freerow span.hl { background: linear-gradient(135deg, #22c55e, #14b8a6); border-color: transparent; color: #04261c; box-shadow: 0 10px 24px -10px rgba(34,197,94,.9); }
+.pill b { background: linear-gradient(135deg, #22c55e, #14b8a6); color: #04261c; }
+.card .ticks { margin: 16px 0 0; gap: 10px; font-size: 14.5px; }
 .hero .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .hero .meta { margin-top: 20px; font-size: 13.5px; color: rgba(255,255,255,.62); }
 
@@ -216,14 +221,15 @@ footer .col a:hover { color: var(--blue); }
 </div></header>
 
 <section class="hero"><div class="w">
-  <a class="pill" href="#ozellikler"><b>YENİ</b> Dosya aktarımı, sohbet ve çoklu monitör artık tek uygulamada →</a>
+  <a class="pill" href="#ozellikler"><b>%100 ÜCRETSİZ</b> Dosya aktarımı, sohbet ve çoklu monitör tek uygulamada →</a>
   <h1>Uzaktaki cihazlarınıza <em>güvenle</em> ulaşın</h1>
   <p class="lead">Kimliği paylaşın, bağlanın. Hızlı, şifreli ve tamamen ücretsiz uzak masaüstü erişimi ile ekibinize, ailenize ve müşterilerinize saniyeler içinde destek verin.</p>
+  <div class="freerow"><span class="hl">✓ Tamamen ücretsiz</span><span>✓ Reklamsız</span><span>✓ Kullanıcı sınırı yok</span><span>✓ Hesap gerektirmez</span></div>
   <div class="btns">
-    <a class="btn white dl" href="#"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Windows için indirin</a>
+    <a class="btn white dl" href="#"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Windows için ücretsiz indirin</a>
     <a class="btn ghost" href="#nasil">Nasıl çalışır?</a>
   </div>
-  <div class="meta" id="meta">Windows 10 / 11 · 64 bit</div>
+  <div class="meta" id="meta">Ücretsiz · Windows 10 / 11 · 64 bit</div>
 </div></section>
 
 <section class="cards"><div class="w">
@@ -244,6 +250,7 @@ footer .col a:hover { color: var(--blue); }
     <div class="in" style="padding-top:30px">
       <h3>Güvenlik öncelikli</h3>
       <p>Parola ağdan düz gitmez, görüntü doğrudan cihazlar arasında akar.</p>
+      <ul class="ticks"><li>Parola ağdan düz gitmez</li><li>Onay penceresi ve kilit</li><li>Görüntü şifreli akar</li></ul>
       <a class="more" href="#guvenlik">Nasıl çalışır →</a>
     </div>
     <div class="art">
@@ -255,7 +262,8 @@ footer .col a:hover { color: var(--blue); }
       <h3>Tamamen ücretsiz</h3>
       <p>Abonelik, kullanıcı sınırı ya da reklam yok.</p>
       <div class="price">0 ₺</div>
-      <a class="more dl" href="#">İndirin →</a>
+      <ul class="ticks"><li>Abonelik ve ödeme yok</li><li>Sınırsız cihaz ve oturum süresi</li><li>Reklam ve hesap gerekmez</li></ul>
+      <a class="more dl" href="#">Ücretsiz indirin →</a>
     </div>
     <div class="art" style="padding-top:6px">
       <svg width="170" height="100" viewBox="0 0 170 100" fill="none"><rect x="6" y="14" width="158" height="74" rx="14" fill="#eef2ff"/><circle cx="46" cy="51" r="20" fill="#fff"/><path d="M38 51l6 6 12-13" stroke="#2f5bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="76" y="38" width="70" height="9" rx="4.5" fill="#c9d4ff"/><rect x="76" y="56" width="46" height="9" rx="4.5" fill="#dfe6ff"/></svg>
@@ -356,7 +364,7 @@ footer .col a:hover { color: var(--blue); }
     <h2>SNNDESK'i şimdi kurun</h2>
     <p>Bir dakikada kurulur, hesap gerektirmez. Uzaktaki cihazlarınıza hemen ulaşın.</p>
     <a class="btn white dl" href="#"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Windows için indirin</a>
-    <div class="meta" id="meta2">Windows 10 / 11 · 64 bit</div>
+    <div class="meta" id="meta2">Ücretsiz · Windows 10 / 11 · 64 bit</div>
   </div>
 </div></section>
 
@@ -379,7 +387,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 fetch(`https://api.github.com/repos/${REPO}/releases/latest`).then((r) => (r.ok ? r.json() : null)).then((j) => {
   if (!j) return;
   const a = (j.assets || []).find((x) => x.name === FILE);
-  const t = `Sürüm ${String(j.tag_name).replace(/^v/, '')}${a ? ' · ' + (a.size / 1048576).toFixed(0) + ' MB' : ''} · Windows 10 / 11 · 64 bit`;
+  const t = `Ücretsiz · Sürüm ${String(j.tag_name).replace(/^v/, '')}${a ? ' · ' + (a.size / 1048576).toFixed(0) + ' MB' : ''} · Windows 10 / 11 · 64 bit`;
   document.getElementById('meta').textContent = t;
   document.getElementById('meta2').textContent = t;
 }).catch(() => {});
