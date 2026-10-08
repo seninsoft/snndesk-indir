@@ -3,92 +3,388 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SNNDESK — Uzak masaüstü erişimi</title>
-<meta name="description" content="SNNDESK: hızlı, güvenli ve ücretsiz uzak masaüstü erişimi. Windows için indirin.">
-<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<title>SNNDESK — Uzak masaüstü erişimi ve destek</title>
+<meta name="description" content="SNNDESK: hızlı, güvenli ve ücretsiz uzak masaüstü erişimi. Dosya aktarımı, sohbet, çoklu monitör. Windows için indirin.">
+<meta property="og:title" content="SNNDESK — Uzak masaüstü erişimi ve destek">
+<meta property="og:description" content="Hızlı, güvenli ve ücretsiz uzak masaüstü erişimi.">
+<link rel="icon" href="favicon.png" type="image/png">
 <style>
 @font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-ext-wght-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+1E00-1EFF, U+20A0-20C0; }
-@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+2000-206F, U+20AC; }
-:root { --accent: #2f5bff; --ink: #0d1330; --muted: #5b6785; }
+@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+2000-206F, U+20AC, U+2192, U+2713; }
+:root { --blue: #2f5bff; --blue2: #2450f0; --navy: #070c52; --ink: #0d1330; --muted: #5b6785; --line: #e6eaf5; --soft: #f5f7fd; --orange: #ff6a2b; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; font: 500 16px/1.6 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif; color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; }
-.hero { position: relative; overflow: hidden; color: #fff; padding: 28px 24px 96px;
-  background: radial-gradient(900px 520px at 15% 110%, rgba(63,94,255,.55), transparent 62%), radial-gradient(600px 420px at 100% 0, rgba(30,60,200,.45), transparent 65%), linear-gradient(165deg, #060a45, #0a1170 52%, #070c52); }
-.hero::after { content: ''; position: absolute; right: -200px; bottom: -140px; width: 640px; height: 640px; border-radius: 50%; background: repeating-radial-gradient(circle, rgba(255,255,255,.06) 0 1px, transparent 1px 40px); pointer-events: none; }
-.wrap { max-width: 1040px; margin: 0 auto; position: relative; z-index: 1; }
-nav { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; }
-nav img { width: 42px; height: 42px; border-radius: 50%; box-shadow: 0 8px 22px rgba(10,20,120,.5); }
-nav i { font-style: normal; font-weight: 300; color: #a9bfff; }
-.hero h1 { margin: 72px 0 16px; font-size: clamp(34px, 6vw, 58px); line-height: 1.08; letter-spacing: -.035em; font-weight: 750; max-width: 680px; }
-.hero p { margin: 0 0 32px; color: rgba(255,255,255,.78); font-size: 18px; max-width: 540px; }
-.btn { display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 30px; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 700; font-size: 16px; text-decoration: none; box-shadow: 0 14px 30px -10px rgba(47,91,255,.8); transition: transform .18s, background .18s; }
-.btn:hover { transform: translateY(-2px); background: #2450f0; }
-.btn svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.meta { margin-top: 14px; color: rgba(255,255,255,.6); font-size: 13.5px; }
-section.feat { padding: 72px 24px 24px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-.card { background: #f5f7fd; border: 1px solid #e6eaf5; border-radius: 20px; padding: 26px; }
-.card .ic { width: 44px; height: 44px; border-radius: 14px; background: #e4eaff; display: grid; place-items: center; margin-bottom: 14px; }
-.card .ic svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: -.01em; }
+body { margin: 0; font: 500 16px/1.6 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif; color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.w { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+
+.topbar { background: #fff; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.topbar .w { display: flex; justify-content: flex-end; gap: 22px; padding: 9px 0; }
+.topbar a:hover { color: var(--blue); }
+
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav .w { display: flex; align-items: center; gap: 34px; height: 68px; }
+.logo { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 21px; letter-spacing: .005em; }
+.logo img { width: 36px; height: 36px; border-radius: 50%; background: #2f5bff; }
+.logo i { font-style: normal; font-weight: 300; color: #5d76ff; }
+.nav nav { display: flex; gap: 6px; }
+.nav nav a { padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 14.5px; color: #2a3350; transition: background .15s; }
+.nav nav a:hover { background: var(--soft); }
+.nav .sp { flex: 1; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 26px; border-radius: 999px; font-weight: 700; font-size: 15px; border: 0; cursor: pointer; transition: transform .18s, box-shadow .18s, background .18s; white-space: nowrap; }
+.btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.btn:hover { transform: translateY(-2px); }
+.btn.cta { background: var(--orange); color: #fff; height: 42px; padding: 0 22px; font-size: 14.5px; box-shadow: 0 10px 22px -10px rgba(255,106,43,.9); }
+.btn.cta:hover { background: #f25a1b; }
+.btn.white { background: #fff; color: #0c1a8a; box-shadow: 0 14px 30px -12px rgba(0,0,0,.5); }
+.btn.ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.7); }
+.btn.ghost:hover { background: rgba(255,255,255,.1); }
+.btn.blue { background: var(--blue); color: #fff; box-shadow: 0 14px 28px -12px rgba(47,91,255,.8); }
+.btn.blue:hover { background: var(--blue2); }
+
+.hero { position: relative; color: #fff; padding: 84px 0 190px; text-align: center; overflow: hidden;
+  background: radial-gradient(1100px 560px at 50% 120%, rgba(70,110,255,.65), transparent 60%), radial-gradient(700px 420px at 12% 0%, rgba(40,70,230,.5), transparent 65%), radial-gradient(700px 420px at 92% 10%, rgba(100,60,255,.35), transparent 65%), linear-gradient(180deg, #0a1170 0%, #0b1488 45%, #0a1a9e 100%); }
+.hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%); }
+.hero .w { position: relative; }
+.pill { display: inline-flex; align-items: center; gap: 12px; padding: 6px 18px 6px 6px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); font-size: 14px; font-weight: 600; backdrop-filter: blur(6px); }
+.pill b { background: var(--blue); padding: 4px 12px; border-radius: 999px; font-size: 12px; letter-spacing: .06em; }
+.hero h1 { margin: 30px auto 20px; font-size: clamp(38px, 6.4vw, 72px); line-height: 1.04; letter-spacing: -.04em; font-weight: 800; max-width: 920px; }
+.hero h1 em { font-style: normal; background: linear-gradient(90deg, #8fd0ff, #b9a8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p.lead { margin: 0 auto 34px; max-width: 660px; font-size: clamp(16px, 1.9vw, 19px); color: rgba(255,255,255,.82); }
+.hero .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.hero .meta { margin-top: 20px; font-size: 13.5px; color: rgba(255,255,255,.62); }
+
+.cards { position: relative; z-index: 2; margin-top: -120px; }
+.cards .w { display: grid; grid-template-columns: 1.55fr .85fr .85fr; gap: 20px; }
+.card { background: #fff; border-radius: 24px; box-shadow: 0 30px 70px -28px rgba(10,20,90,.5), 0 0 0 1px rgba(10,20,90,.05); overflow: hidden; position: relative; }
+.card.big { display: flex; flex-direction: column; }
+.card .in { padding: 30px 32px 0; }
+.tag { display: inline-block; background: var(--blue); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .08em; padding: 5px 11px; border-radius: 6px; margin-bottom: 14px; }
+.card h3 { margin: 0 0 6px; font-size: 24px; letter-spacing: -.02em; line-height: 1.2; }
 .card p { margin: 0; color: var(--muted); font-size: 15px; }
-h2 { font-size: 30px; letter-spacing: -.025em; margin: 0 0 24px; }
-section.how { padding: 56px 24px 24px; }
-ol { margin: 0; padding-left: 22px; color: var(--muted); }
-ol li { margin: 8px 0; }
-ol b { color: var(--ink); }
-.note { margin: 28px 0 0; padding: 18px 22px; border-radius: 16px; background: #fff7e6; border: 1px solid #fde3a7; color: #7a4b00; font-size: 14.5px; }
-footer { margin-top: 64px; padding: 28px 24px; border-top: 1px solid #e6eaf5; color: var(--muted); font-size: 14px; text-align: center; }
+.rows { margin-top: 18px; border-top: 1px solid var(--line); }
+.rows a { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.rows a:hover b { color: var(--blue); }
+.rows a b { display: block; font-size: 16px; letter-spacing: -.01em; transition: color .15s; }
+.rows a span { display: block; color: var(--muted); font-size: 13.5px; }
+.rows a svg { margin-left: auto; width: 20px; height: 20px; flex: none; stroke: #98a2b3; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.big .shot { margin: 18px 22px 0 32px; border-radius: 16px 16px 0 0; overflow: hidden; box-shadow: 0 -2px 0 var(--line), 0 20px 40px -20px rgba(10,20,90,.45); border: 1px solid var(--line); border-bottom: 0; max-height: 210px; }
+.big .shot img { width: 100%; object-fit: cover; object-position: top; }
+.card .link { display: block; padding: 16px 32px; text-align: center; border-top: 1px solid var(--line); color: var(--blue); font-weight: 700; margin-top: auto; }
+.card .art { display: grid; place-items: center; padding: 26px 20px 30px; }
+.card .more { display: inline-block; margin-top: 16px; font-weight: 800; font-size: 15px; color: var(--ink); }
+.card .more:hover { color: var(--blue); }
+.price { font-size: 70px; font-weight: 800; letter-spacing: -.05em; line-height: 1; margin: 10px 0 2px; background: linear-gradient(135deg, #2f5bff, #7d5bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.stats { padding: 78px 0 30px; text-align: center; }
+.stats h4 { margin: 0 0 30px; font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: .01em; }
+.stats .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.stat { padding: 8px 10px; }
+.stat b { display: block; font-size: 44px; font-weight: 800; letter-spacing: -.04em; background: linear-gradient(135deg, #0a1170, #2f5bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat span { color: var(--muted); font-size: 14.5px; }
+
+section.s { padding: 84px 0; }
+.eyebrow { color: var(--blue); font-weight: 800; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
+h2.t { margin: 0 0 14px; font-size: clamp(30px, 4.2vw, 46px); line-height: 1.1; letter-spacing: -.035em; font-weight: 800; }
+p.sub { margin: 0; color: var(--muted); font-size: 18px; max-width: 620px; }
+.head { text-align: center; margin-bottom: 52px; }
+.head p.sub { margin: 0 auto; }
+
+.feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.f { background: var(--soft); border: 1px solid var(--line); border-radius: 22px; padding: 30px; transition: transform .25s, box-shadow .25s, background .25s; }
+.f:hover { transform: translateY(-6px); background: #fff; box-shadow: 0 26px 50px -26px rgba(10,20,90,.35); }
+.f .ic { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, #e4eaff, #f0e9ff); margin-bottom: 20px; }
+.f .ic svg { width: 26px; height: 26px; fill: none; stroke: var(--blue); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.f h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.02em; }
+.f p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+.show { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: center; }
+.show.rev { grid-template-columns: 1.1fr 1fr; }
+.show.rev .txt { order: 2; }
+.ticks { list-style: none; margin: 24px 0 30px; padding: 0; display: grid; gap: 14px; }
+.ticks li { display: flex; gap: 12px; font-weight: 600; color: #2a3350; }
+.ticks li::before { content: ''; flex: none; width: 24px; height: 24px; border-radius: 50%; margin-top: 1px; background: #e4eaff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f5bff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat; }
+.win { border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 40px 80px -30px rgba(10,20,90,.55), 0 0 0 1px rgba(10,20,90,.08); }
+.win .bar { height: 38px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #f1f4fb; border-bottom: 1px solid var(--line); }
+.win .bar i { width: 11px; height: 11px; border-radius: 50%; background: #d5dbe8; }
+.win .bar i:nth-child(1) { background: #ff6159; } .win .bar i:nth-child(2) { background: #ffbd2e; } .win .bar i:nth-child(3) { background: #28c940; }
+.win img { width: 100%; }
+.blob { position: relative; }
+.blob::before { content: ''; position: absolute; inset: -40px -30px; background: radial-gradient(closest-side, rgba(90,110,255,.28), transparent); z-index: -1; }
+
+.remote { border-radius: 18px; overflow: hidden; background: #0a0f1f; box-shadow: 0 40px 80px -30px rgba(10,20,90,.6), 0 0 0 1px rgba(10,20,90,.15); position: relative; }
+.remote .tb { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #0b101c; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 12.5px; color: #dbe4f5; font-weight: 700; }
+.remote .tb .dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.22); }
+.remote .tb .sp { flex: 1; }
+.remote .tb em { font-style: normal; font-weight: 600; font-size: 11.5px; color: #7f8da6; }
+.remote .tb .p { padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.08); font-weight: 600; font-size: 11.5px; }
+.remote .tb .p.r { background: #e5484d; }
+.screen { position: relative; aspect-ratio: 16/10; background: radial-gradient(500px 300px at 20% 10%, #7a5cff 0%, transparent 60%), radial-gradient(500px 300px at 90% 90%, #1fb6ff 0%, transparent 60%), linear-gradient(135deg, #1b2b8a, #3a1e8f); }
+.screen .app { position: absolute; background: rgba(255,255,255,.96); border-radius: 10px; box-shadow: 0 20px 40px -12px rgba(0,0,0,.45); overflow: hidden; }
+.screen .app.a1 { left: 7%; top: 12%; width: 52%; height: 56%; }
+.screen .app.a2 { right: 6%; top: 28%; width: 36%; height: 46%; background: rgba(18,24,48,.96); }
+.screen .app .hd { height: 22px; background: #eef1f9; }
+.screen .app.a2 .hd { background: #1b2342; }
+.screen .app .ln { height: 7px; border-radius: 4px; background: #dfe5f3; margin: 10px 12px 0; }
+.screen .app.a2 .ln { background: #2a3560; }
+.screen .app .ln.s { width: 60%; } .screen .app .ln.m { width: 80%; } .screen .app .ln.b { background: #cdd8ff; width: 45%; }
+.screen .task { position: absolute; left: 0; right: 0; bottom: 0; height: 9%; background: rgba(10,14,34,.7); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; gap: 9px; }
+.screen .task i { width: 16px; height: 16px; border-radius: 5px; background: rgba(255,255,255,.75); }
+.screen .task i:nth-child(2n) { background: #6aa0ff; } .screen .task i:nth-child(3n) { background: #ffb86a; }
+.cursor { position: absolute; left: 46%; top: 50%; width: 26px; filter: drop-shadow(0 4px 6px rgba(0,0,0,.5)); animation: mv 7s ease-in-out infinite; }
+@keyframes mv { 0%,100% { transform: translate(0,0); } 30% { transform: translate(90px,-40px); } 60% { transform: translate(-60px,50px); } }
+.chip { position: absolute; background: #fff; border-radius: 14px; padding: 10px 16px; font-size: 13px; font-weight: 700; box-shadow: 0 18px 40px -14px rgba(10,20,90,.5); display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.chip small { display: block; color: var(--muted); font-weight: 600; font-size: 11.5px; }
+.chip .g { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.2); }
+.chip.c1 { left: -26px; bottom: 34px; animation: fl 5s ease-in-out infinite; }
+.chip.c2 { right: -18px; top: 70px; animation: fl 6s ease-in-out infinite .8s; }
+@keyframes fl { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; position: relative; }
+.step { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 34px 30px; position: relative; box-shadow: 0 20px 44px -30px rgba(10,20,90,.3); }
+.step .n { width: 54px; height: 54px; border-radius: 18px; display: grid; place-items: center; font-size: 24px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #3a66ff, #7d5bff); box-shadow: 0 14px 26px -12px rgba(47,91,255,.8); margin-bottom: 22px; }
+.step h3 { margin: 0 0 8px; font-size: 21px; letter-spacing: -.02em; }
+.step p { margin: 0; color: var(--muted); }
+.step:not(:last-child)::after { content: ''; position: absolute; top: 60px; right: -22px; width: 22px; height: 2px; background: repeating-linear-gradient(90deg, #b9c5ee 0 4px, transparent 4px 8px); }
+
+.dark { background: radial-gradient(900px 420px at 80% 0, rgba(80,110,255,.35), transparent 60%), linear-gradient(165deg, #060a45, #0a1170); color: #fff; border-radius: 36px; padding: 70px 56px; position: relative; overflow: hidden; }
+.dark .eyebrow { color: #8fb0ff; }
+.dark p.sub { color: rgba(255,255,255,.72); }
+.sgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 46px; }
+.sg { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 26px 24px; backdrop-filter: blur(6px); }
+.sg svg { width: 30px; height: 30px; fill: none; stroke: #9fc0ff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 16px; }
+.sg h3 { margin: 0 0 8px; font-size: 17.5px; letter-spacing: -.01em; }
+.sg p { margin: 0; font-size: 14.5px; color: rgba(255,255,255,.7); }
+
+.faq { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+.faq details { background: var(--soft); border: 1px solid var(--line); border-radius: 18px; padding: 0 26px; transition: background .2s; }
+.faq details[open] { background: #fff; box-shadow: 0 20px 40px -28px rgba(10,20,90,.35); }
+.faq summary { cursor: pointer; list-style: none; padding: 22px 0; font-weight: 700; font-size: 17px; display: flex; align-items: center; gap: 16px; letter-spacing: -.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; margin-left: auto; font-size: 26px; font-weight: 500; color: var(--blue); transition: transform .2s; line-height: 1; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { margin: 0 0 24px; color: var(--muted); }
+
+.final { text-align: center; color: #fff; border-radius: 36px; padding: 80px 30px; position: relative; overflow: hidden;
+  background: radial-gradient(700px 360px at 50% 120%, rgba(110,140,255,.7), transparent 60%), linear-gradient(135deg, #0a1170, #2f5bff 130%); }
+.final h2 { margin: 0 0 12px; font-size: clamp(30px, 4.6vw, 52px); letter-spacing: -.035em; font-weight: 800; }
+.final p { margin: 0 auto 30px; max-width: 540px; color: rgba(255,255,255,.82); font-size: 18px; }
+.final .meta { margin-top: 18px; color: rgba(255,255,255,.65); font-size: 13.5px; }
+
+footer { margin-top: 90px; border-top: 1px solid var(--line); padding: 46px 0 40px; }
+footer .w { display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start; }
+footer .about { max-width: 340px; color: var(--muted); font-size: 14.5px; margin-top: 14px; }
+footer .col { margin-left: auto; display: flex; gap: 60px; }
+footer h5 { margin: 0 0 12px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+footer .col a { display: block; padding: 4px 0; font-weight: 600; font-size: 14.5px; }
+footer .col a:hover { color: var(--blue); }
+.copy { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+.rv { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.rv.in { opacity: 1; transform: none; }
+
+@media (max-width: 980px) {
+  .cards .w { grid-template-columns: 1fr; }
+  .feats, .steps { grid-template-columns: 1fr; }
+  .show, .show.rev { grid-template-columns: 1fr; gap: 40px; }
+  .show.rev .txt { order: 0; }
+  .sgrid, .stats .grid { grid-template-columns: repeat(2, 1fr); }
+  .step:not(:last-child)::after { display: none; }
+  .nav nav { display: none; }
+  .dark { padding: 50px 26px; }
+  .chip.c1 { left: 6px; } .chip.c2 { right: 6px; }
+  footer .col { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } .cursor, .chip { animation: none; } }
 </style>
 </head>
 <body>
-<header class="hero">
-  <div class="wrap">
-    <nav><img src="assets/logo.svg" alt=""><span>SNN<i>DESK</i></span></nav>
-    <h1>Uzaktaki cihazlarınıza güvenle ulaşın</h1>
-    <p>Hızlı, uçtan uca şifreli ve tamamen ücretsiz uzak masaüstü erişimi ve destek. Kurun, kimliğinizi paylaşın, bağlanın.</p>
-    <a class="btn" id="dl" href="#">
-      <svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
-      Windows için indir
-    </a>
-    <div class="meta" id="meta">Windows 10 / 11 · 64 bit</div>
-  </div>
-</header>
 
-<section class="feat"><div class="wrap">
+<div class="topbar"><div class="w"><a href="#sss">Sık sorulan sorular</a><a href="#guvenlik">Güvenlik</a><span>Ücretsiz · Reklamsız · Hesap gerektirmez</span><a href="https://seninsoft.com" target="_blank" rel="noopener">seninsoft.com ↗</a></div></div>
+
+<header class="nav"><div class="w">
+  <a class="logo" href="#"><img src="logo.png" width="36" height="36" alt=""><span>SNN<i>DESK</i></span></a>
+  <nav>
+    <a href="#ozellikler">Özellikler</a>
+    <a href="#nasil">Nasıl çalışır</a>
+    <a href="#guvenlik">Güvenlik</a>
+    <a href="#sss">SSS</a>
+  </nav>
+  <span class="sp"></span>
+  <a class="btn cta dl" href="#">Ücretsiz indirin</a>
+</div></header>
+
+<section class="hero"><div class="w">
+  <a class="pill" href="#ozellikler"><b>YENİ</b> Dosya aktarımı, sohbet ve çoklu monitör artık tek uygulamada →</a>
+  <h1>Uzaktaki cihazlarınıza <em>güvenle</em> ulaşın</h1>
+  <p class="lead">Kimliği paylaşın, bağlanın. Hızlı, şifreli ve tamamen ücretsiz uzak masaüstü erişimi ile ekibinize, ailenize ve müşterilerinize saniyeler içinde destek verin.</p>
+  <div class="btns">
+    <a class="btn white dl" href="#"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Windows için indirin</a>
+    <a class="btn ghost" href="#nasil">Nasıl çalışır?</a>
+  </div>
+  <div class="meta" id="meta">Windows 10 / 11 · 64 bit</div>
+</div></section>
+
+<section class="cards"><div class="w">
+  <div class="card big rv">
+    <div class="in">
+      <span class="tag">UYGULAMA</span>
+      <h3>Tek uygulama, her şey dahil</h3>
+      <p>Destek verin, destek alın. Aynı uygulama hem paylaşan hem bağlanan taraf olarak çalışır.</p>
+      <div class="rows">
+        <a href="#ozellikler"><div><b>Uzaktan destek</b><span>Karşı cihazı kendi ekranınızmış gibi kullanın</span></div><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+        <a href="#ozellikler"><div><b>Dosya aktarımı</b><span>Sürükleyip bırakın, iki yöne de gönderin</span></div><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="shot"><img src="app-main.png" alt="SNNDESK ana ekranı" loading="lazy"></div>
+    <a class="link dl" href="#">Hemen indirin →</a>
+  </div>
+  <div class="card sec rv">
+    <div class="in" style="padding-top:30px">
+      <h3>Güvenlik öncelikli</h3>
+      <p>Parola ağdan düz gitmez, görüntü doğrudan cihazlar arasında akar.</p>
+      <a class="more" href="#guvenlik">Nasıl çalışır →</a>
+    </div>
+    <div class="art">
+      <svg width="170" height="150" viewBox="0 0 170 150" fill="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb0ff"/><stop offset="1" stop-color="#2f4bff"/></linearGradient></defs><path d="M85 8l58 20v38c0 36-24 60-58 74-34-14-58-38-58-74V28L85 8z" fill="url(#sg)"/><path d="M85 8l58 20v38c0 36-24 60-58 74V8z" fill="#fff" opacity=".12"/><rect x="62" y="64" width="46" height="36" rx="8" fill="#fff"/><path d="M71 64V54a14 14 0 0128 0v10" stroke="#fff" stroke-width="7" stroke-linecap="round"/><circle cx="85" cy="82" r="5" fill="#2f5bff"/></svg>
+    </div>
+  </div>
+  <div class="card free rv">
+    <div class="in" style="padding-top:30px">
+      <h3>Tamamen ücretsiz</h3>
+      <p>Abonelik, kullanıcı sınırı ya da reklam yok.</p>
+      <div class="price">0 ₺</div>
+      <a class="more dl" href="#">İndirin →</a>
+    </div>
+    <div class="art" style="padding-top:6px">
+      <svg width="170" height="100" viewBox="0 0 170 100" fill="none"><rect x="6" y="14" width="158" height="74" rx="14" fill="#eef2ff"/><circle cx="46" cy="51" r="20" fill="#fff"/><path d="M38 51l6 6 12-13" stroke="#2f5bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="76" y="38" width="70" height="9" rx="4.5" fill="#c9d4ff"/><rect x="76" y="56" width="46" height="9" rx="4.5" fill="#dfe6ff"/></svg>
+    </div>
+  </div>
+</div></section>
+
+<section class="stats"><div class="w rv">
+  <h4>Basit, hızlı ve ücretsiz bir uzak masaüstü aracı</h4>
   <div class="grid">
-    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Güvenli bağlantı</h3><p>Parola ya da karşı tarafın onayıyla bağlanın. Görüntü ve kontrol doğrudan cihazlar arasında, şifreli akar.</p></div>
-    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Akıcı görüntü</h3><p>60 FPS'e kadar görüntü, çoklu monitör ve sistem sesi desteği.</p></div>
-    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></div><h3>Dosya, pano, sohbet</h3><p>Dosya sürükleyip bırakın, panoyu paylaşın, oturum içinde yazışın.</p></div>
+    <div class="stat"><b>60 FPS</b><span>akıcı uzak ekran</span></div>
+    <div class="stat"><b>9 hane</b><span>tek kimlikle bağlantı</span></div>
+    <div class="stat"><b>0 ₺</b><span>ücret ve abonelik yok</span></div>
+    <div class="stat"><b>P2P</b><span>doğrudan, şifreli bağlantı</span></div>
   </div>
 </div></section>
 
-<section class="how"><div class="wrap">
-  <h2>Nasıl kullanılır?</h2>
-  <ol>
-    <li>Uygulamayı <b>iki bilgisayara</b> da kurun.</li>
-    <li>Bağlanılacak cihazda uygulamayı açın. <b>Kimlik</b> ve <b>parola</b> görünür.</li>
-    <li>Diğer cihazda kimliği yazın, parolayı girin ve <b>Uzak cihaza bağlan</b>'a basın. Parolayı boş bırakırsanız karşı taraftan onay istenir.</li>
-  </ol>
-  <div class="note"><b>Kurulumda Windows uyarısı çıkabilir.</b> Uygulama henüz dijital olarak imzalı değil. "Windows bilgisayarınızı korudu" ekranında <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a tıklayın.</div>
+<section class="s" id="ozellikler"><div class="w">
+  <div class="head rv"><div class="eyebrow">Özellikler</div><h2 class="t">Uzaktan çalışmanın her yönü,<br>tek uygulamada</h2><p class="sub">Destek vermek için ihtiyacınız olan her şey hazır.</p></div>
+  <div class="feats">
+    <div class="f rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2.5"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Akıcı uzak ekran</h3><p>60 FPS'e kadar görüntü. Hız, dengeli ve kalite ön ayarlarıyla bağlantınıza göre ayarlayın.</p></div>
+    <div class="f rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M12 17v-6M9.5 13.5L12 11l2.5 2.5"/></svg></div><h3>Dosya aktarımı</h3><p>Dosyaları pencereye sürükleyin. İki yönde de gönderin.</p></div>
+    <div class="f rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.4A8 8 0 1121 12z"/></svg></div><h3>Oturum içi sohbet</h3><p>Ekran paylaşırken yazışın, karşı tarafla anlık iletişimde kalın.</p></div>
+    <div class="f rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg></div><h3>Pano eşitleme</h3><p>Bir cihazda kopyalayın, diğerinde yapıştırın. Metinler iki yönde otomatik eşitlenir.</p></div>
+    <div class="f rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="9" height="7" rx="1.5"/><rect x="13" y="5" width="9" height="7" rx="1.5"/><path d="M6 17h12M12 12v5"/></svg></div><h3>Çoklu monitör ve ses</h3><p>Karşı cihazın istediğiniz ekranına geçin, sistem sesini de dinleyin.</p></div>
+    <div class="f rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Onay ve katılımsız erişim</h3><p>Parolasız bağlantılarda onay penceresi. Kalıcı parola ile katılımsız erişim kurabilirsiniz.</p></div>
+  </div>
 </div></section>
 
-<footer>© <span id="yr"></span> senin soft · SNNDESK</footer>
+<section class="s" style="padding-top:20px"><div class="w">
+  <div class="show">
+    <div class="txt rv"><div class="eyebrow">Basit arayüz</div><h2 class="t">Kimliği paylaşın,<br>gerisini bize bırakın</h2>
+      <p class="sub">Uygulamayı açtığınızda kimliğiniz ve parolanız hazır. Karşı taraf bunları girdiği anda bağlanır.</p>
+      <ul class="ticks"><li>9 haneli kimlik ve rastgele parola</li><li>Cihazlar için adres defteri ve bağlantı geçmişi</li><li>Pencereyi kapatınca tepsiye iner, bağlantı kabul etmeye devam eder</li></ul>
+      <a class="btn blue dl" href="#"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>İndirin</a></div>
+    <div class="blob rv"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="app-main.png" alt="SNNDESK uygulaması" loading="lazy"></div></div>
+  </div>
+</div></section>
+
+<section class="s" style="padding-top:30px"><div class="w">
+  <div class="show rev">
+    <div class="blob rv" style="position:relative">
+      <div class="remote">
+        <div class="tb"><span class="dot"></span>482 031 779 <em>00:12:40</em><span class="sp"></span><span class="p">Dosya</span><span class="p">Sohbet</span><span class="p">Ayarlar</span><span class="p r">Kes</span></div>
+        <div class="screen">
+          <div class="app a1"><div class="hd"></div><div class="ln m"></div><div class="ln"></div><div class="ln s"></div><div class="ln b"></div><div class="ln m"></div></div>
+          <div class="app a2"><div class="hd"></div><div class="ln s"></div><div class="ln m"></div><div class="ln"></div></div>
+          <div class="task"><i></i><i></i><i></i><i></i><i></i></div>
+          <svg class="cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.8L16 20l-3 1.4-3-7L5.5 18z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="chip c1"><span class="g"></span><div>Bağlantı kuruldu<small>Şifreli · 60 FPS</small></div></div>
+      <div class="chip c2"><div>Dosya alındı<small>sunum.pdf · 12,4 MB</small></div></div>
+    </div>
+    <div class="txt rv"><div class="eyebrow">Uzaktan destek</div><h2 class="t">Karşı cihazı kendi<br>ekranınız gibi kullanın</h2>
+      <p class="sub">Fare ve klavye anında karşı tarafa iletilir. Gerekirse salt izleme moduna geçip yalnızca izleyin.</p>
+      <ul class="ticks"><li>Windows tuşu, Alt + Tab gibi kısayollar tek tıkta</li><li>Tam ekran modunda otomatik gizlenen araç çubuğu</li><li>Canlı bağlantı kalitesi: FPS, hız ve gecikme göstergesi</li></ul></div>
+  </div>
+</div></section>
+
+<section class="s" id="nasil" style="background:var(--soft)"><div class="w">
+  <div class="head rv"><div class="eyebrow">Nasıl çalışır</div><h2 class="t">Üç adımda bağlanın</h2><p class="sub">Kurulum bir dakika sürer, hesap açmanız gerekmez.</p></div>
+  <div class="steps">
+    <div class="step rv"><div class="n">1</div><h3>İki cihaza da kurun</h3><p>Uygulamayı indirip hem destek veren hem destek alan bilgisayara kurun.</p></div>
+    <div class="step rv"><div class="n">2</div><h3>Kimliği paylaşın</h3><p>Bağlanılacak cihazda uygulamayı açın. Kimliğiniz ve parolanız ekranda hazır.</p></div>
+    <div class="step rv"><div class="n">3</div><h3>Bağlanın</h3><p>Diğer cihazda kimliği girip bağlanın. Parola girmezseniz karşı taraf onay verir.</p></div>
+  </div>
+</div></section>
+
+<section class="s" id="guvenlik"><div class="w">
+  <div class="dark rv">
+    <div class="eyebrow">Güvenlik</div>
+    <h2 class="t" style="max-width:640px">Verileriniz sizde kalsın</h2>
+    <p class="sub">Güvenlik, sonradan eklenen bir özellik değil; bağlantının kurulma biçiminin kendisi.</p>
+    <div class="sgrid">
+      <div class="sg"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 12h6"/></svg><h3>Doğrudan bağlantı</h3><p>Görüntü ve kontrol çoğu durumda cihazlar arasında doğrudan, şifreli akar.</p></div>
+      <div class="sg"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><h3>Parola ağdan gitmez</h3><p>Parola karşılıklı doğrulama (HMAC) ile kontrol edilir, düz metin olarak iletilmez.</p></div>
+      <div class="sg"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><h3>Onay ve kilit</h3><p>Parolasız bağlantı için onay penceresi. Hatalı denemelerde bağlantı geçici kilitlenir.</p></div>
+      <div class="sg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg><h3>Her zaman görünür</h3><p>Oturum sürerken ekranınızda “paylaşılıyor” çubuğu durur, tek tıkla bitirebilirsiniz.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s" id="sss" style="padding-top:20px"><div class="w">
+  <div class="head rv"><div class="eyebrow">SSS</div><h2 class="t">Sık sorulan sorular</h2></div>
+  <div class="faq rv">
+    <details open><summary>SNNDESK gerçekten ücretsiz mi?</summary><p>Evet. Abonelik, kullanıcı sınırı ya da reklam yok. İndirin, kurun, kullanın.</p></details>
+    <details><summary>Kurulumda Windows uyarısı neden çıkıyor?</summary><p>Uygulama henüz dijital olarak imzalı değil. Uyarıda “Ek bilgi”ye, ardından “Yine de çalıştır”a tıklayarak kurabilirsiniz.</p></details>
+    <details><summary>Hangi sistemlerde çalışır?</summary><p>Windows 10 ve 11 (64 bit). Bağlanan taraf ve bağlanılan taraf için aynı uygulama kullanılır.</p></details>
+    <details><summary>Birisi izinsiz bilgisayarıma bağlanabilir mi?</summary><p>Hayır. Bağlanmak için parolanızı bilmesi ya da sizin onay vermeniz gerekir. Hatalı parola denemelerinde bağlantı geçici olarak kilitlenir.</p></details>
+    <details><summary>Bağlantıyı nasıl keserim?</summary><p>Oturum sürerken ekranınızın üstündeki “Bitir” düğmesine ya da uygulamadaki “Bağlantıyı Kes”e basmanız yeterli.</p></details>
+    <details><summary>Uygulamayı nasıl kaldırırım?</summary><p>Windows Ayarlar › Uygulamalar bölümünden SNNDESK'i seçip kaldırabilirsiniz.</p></details>
+  </div>
+</div></section>
+
+<section class="s" style="padding-top:10px"><div class="w">
+  <div class="final rv">
+    <h2>SNNDESK'i şimdi kurun</h2>
+    <p>Bir dakikada kurulur, hesap gerektirmez. Uzaktaki cihazlarınıza hemen ulaşın.</p>
+    <a class="btn white dl" href="#"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Windows için indirin</a>
+    <div class="meta" id="meta2">Windows 10 / 11 · 64 bit</div>
+  </div>
+</div></section>
+
+<footer><div class="w">
+  <div><a class="logo" href="#"><img src="logo.png" width="36" height="36" alt=""><span>SNN<i>DESK</i></span></a><div class="about">Hızlı, güvenli ve ücretsiz uzak masaüstü erişimi ve destek yazılımı.</div></div>
+  <div class="col">
+    <div><h5>Ürün</h5><a href="#ozellikler">Özellikler</a><a href="#nasil">Nasıl çalışır</a><a href="#guvenlik">Güvenlik</a></div>
+    <div><h5>Destek</h5><a href="#sss">SSS</a><a class="dl" href="#">İndir</a></div>
+    <div><h5>Geliştirici</h5><a href="https://seninsoft.com" target="_blank" rel="noopener">senin soft ↗</a><a href="https://seninsoft.com" target="_blank" rel="noopener">seninsoft.com</a></div>
+  </div>
+  <div style="flex-basis:100%"><div class="copy"><span>© <span id="yr"></span> <a href="https://seninsoft.com" target="_blank" rel="noopener" style="font-weight:700">senin soft</a>. Tüm hakları saklıdır.</span><span>SNNDESK</span></div></div>
+</div></footer>
 
 <script>
-// Depo adını burada ayarlayın: "kullanici/depo"
 const REPO = 'seninsoft/snndesk-indir';
 const FILE = 'SNNDESK-Setup.exe';
-const dl = document.getElementById('dl');
-dl.href = `https://github.com/${REPO}/releases/latest/download/${FILE}`;
+const URL_DL = `https://github.com/${REPO}/releases/latest/download/${FILE}`;
+document.querySelectorAll('.dl').forEach((a) => (a.href = URL_DL));
 document.getElementById('yr').textContent = new Date().getFullYear();
-fetch(`https://api.github.com/repos/${REPO}/releases/latest`).then((r) => r.ok ? r.json() : null).then((j) => {
+fetch(`https://api.github.com/repos/${REPO}/releases/latest`).then((r) => (r.ok ? r.json() : null)).then((j) => {
   if (!j) return;
   const a = (j.assets || []).find((x) => x.name === FILE);
-  const mb = a ? ' · ' + (a.size / 1048576).toFixed(0) + ' MB' : '';
-  document.getElementById('meta').textContent = `Sürüm ${String(j.tag_name).replace(/^v/, '')}${mb} · Windows 10 / 11 · 64 bit`;
+  const t = `Sürüm ${String(j.tag_name).replace(/^v/, '')}${a ? ' · ' + (a.size / 1048576).toFixed(0) + ' MB' : ''} · Windows 10 / 11 · 64 bit`;
+  document.getElementById('meta').textContent = t;
+  document.getElementById('meta2').textContent = t;
 }).catch(() => {});
+const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach((el) => io.observe(el));
 </script>
 </body>
 </html>
