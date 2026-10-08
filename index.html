@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNNDESK — Uzak masaüstü erişimi</title>
+<meta name="description" content="SNNDESK: hızlı, güvenli ve ücretsiz uzak masaüstü erişimi. Windows için indirin.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<style>
+@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-ext-wght-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+1E00-1EFF, U+20A0-20C0; }
+@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+2000-206F, U+20AC; }
+:root { --accent: #2f5bff; --ink: #0d1330; --muted: #5b6785; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font: 500 16px/1.6 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif; color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; }
+.hero { position: relative; overflow: hidden; color: #fff; padding: 28px 24px 96px;
+  background: radial-gradient(900px 520px at 15% 110%, rgba(63,94,255,.55), transparent 62%), radial-gradient(600px 420px at 100% 0, rgba(30,60,200,.45), transparent 65%), linear-gradient(165deg, #060a45, #0a1170 52%, #070c52); }
+.hero::after { content: ''; position: absolute; right: -200px; bottom: -140px; width: 640px; height: 640px; border-radius: 50%; background: repeating-radial-gradient(circle, rgba(255,255,255,.06) 0 1px, transparent 1px 40px); pointer-events: none; }
+.wrap { max-width: 1040px; margin: 0 auto; position: relative; z-index: 1; }
+nav { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; }
+nav img { width: 42px; height: 42px; border-radius: 50%; box-shadow: 0 8px 22px rgba(10,20,120,.5); }
+nav i { font-style: normal; font-weight: 300; color: #a9bfff; }
+.hero h1 { margin: 72px 0 16px; font-size: clamp(34px, 6vw, 58px); line-height: 1.08; letter-spacing: -.035em; font-weight: 750; max-width: 680px; }
+.hero p { margin: 0 0 32px; color: rgba(255,255,255,.78); font-size: 18px; max-width: 540px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 30px; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 700; font-size: 16px; text-decoration: none; box-shadow: 0 14px 30px -10px rgba(47,91,255,.8); transition: transform .18s, background .18s; }
+.btn:hover { transform: translateY(-2px); background: #2450f0; }
+.btn svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.meta { margin-top: 14px; color: rgba(255,255,255,.6); font-size: 13.5px; }
+section.feat { padding: 72px 24px 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.card { background: #f5f7fd; border: 1px solid #e6eaf5; border-radius: 20px; padding: 26px; }
+.card .ic { width: 44px; height: 44px; border-radius: 14px; background: #e4eaff; display: grid; place-items: center; margin-bottom: 14px; }
+.card .ic svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: -.01em; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+h2 { font-size: 30px; letter-spacing: -.025em; margin: 0 0 24px; }
+section.how { padding: 56px 24px 24px; }
+ol { margin: 0; padding-left: 22px; color: var(--muted); }
+ol li { margin: 8px 0; }
+ol b { color: var(--ink); }
+.note { margin: 28px 0 0; padding: 18px 22px; border-radius: 16px; background: #fff7e6; border: 1px solid #fde3a7; color: #7a4b00; font-size: 14.5px; }
+footer { margin-top: 64px; padding: 28px 24px; border-top: 1px solid #e6eaf5; color: var(--muted); font-size: 14px; text-align: center; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav><img src="assets/logo.svg" alt=""><span>SNN<i>DESK</i></span></nav>
+    <h1>Uzaktaki cihazlarınıza güvenle ulaşın</h1>
+    <p>Hızlı, uçtan uca şifreli ve tamamen ücretsiz uzak masaüstü erişimi ve destek. Kurun, kimliğinizi paylaşın, bağlanın.</p>
+    <a class="btn" id="dl" href="#">
+      <svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+      Windows için indir
+    </a>
+    <div class="meta" id="meta">Windows 10 / 11 · 64 bit</div>
+  </div>
+</header>
+
+<section class="feat"><div class="wrap">
+  <div class="grid">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Güvenli bağlantı</h3><p>Parola ya da karşı tarafın onayıyla bağlanın. Görüntü ve kontrol doğrudan cihazlar arasında, şifreli akar.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Akıcı görüntü</h3><p>60 FPS'e kadar görüntü, çoklu monitör ve sistem sesi desteği.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></div><h3>Dosya, pano, sohbet</h3><p>Dosya sürükleyip bırakın, panoyu paylaşın, oturum içinde yazışın.</p></div>
+  </div>
+</div></section>
+
+<section class="how"><div class="wrap">
+  <h2>Nasıl kullanılır?</h2>
+  <ol>
+    <li>Uygulamayı <b>iki bilgisayara</b> da kurun.</li>
+    <li>Bağlanılacak cihazda uygulamayı açın. <b>Kimlik</b> ve <b>parola</b> görünür.</li>
+    <li>Diğer cihazda kimliği yazın, parolayı girin ve <b>Uzak cihaza bağlan</b>'a basın. Parolayı boş bırakırsanız karşı taraftan onay istenir.</li>
+  </ol>
+  <div class="note"><b>Kurulumda Windows uyarısı çıkabilir.</b> Uygulama henüz dijital olarak imzalı değil. "Windows bilgisayarınızı korudu" ekranında <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a tıklayın.</div>
+</div></section>
+
+<footer>© <span id="yr"></span> senin soft · SNNDESK</footer>
+
+<script>
+// Depo adını burada ayarlayın: "kullanici/depo"
+const REPO = 'seninsoft/snndesk-indir';
+const FILE = 'SNNDESK-Setup.exe';
+const dl = document.getElementById('dl');
+dl.href = `https://github.com/${REPO}/releases/latest/download/${FILE}`;
+document.getElementById('yr').textContent = new Date().getFullYear();
+fetch(`https://api.github.com/repos/${REPO}/releases/latest`).then((r) => r.ok ? r.json() : null).then((j) => {
+  if (!j) return;
+  const a = (j.assets || []).find((x) => x.name === FILE);
+  const mb = a ? ' · ' + (a.size / 1048576).toFixed(0) + ' MB' : '';
+  document.getElementById('meta').textContent = `Sürüm ${String(j.tag_name).replace(/^v/, '')}${mb} · Windows 10 / 11 · 64 bit`;
+}).catch(() => {});
+</script>
+</body>
+</html>
