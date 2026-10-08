@@ -57,6 +57,8 @@ img { max-width: 100%; display: block; }
 .freerow span.hl { background: linear-gradient(135deg, #22c55e, #14b8a6); border-color: transparent; color: #04261c; box-shadow: 0 10px 24px -10px rgba(34,197,94,.9); }
 .pill b { background: linear-gradient(135deg, #22c55e, #14b8a6); color: #04261c; }
 .card .ticks { margin: 16px 0 0; gap: 10px; font-size: 14.5px; }
+.card .ticks.allf { gap: 9px; font-size: 14px; margin-top: 14px; }
+.card .ticks.allf li::before { width: 22px; height: 22px; }
 .hero .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .hero .meta { margin-top: 20px; font-size: 13.5px; color: rgba(255,255,255,.62); }
 
@@ -259,14 +261,21 @@ footer .col a:hover { color: var(--blue); }
   </div>
   <div class="card free rv">
     <div class="in" style="padding-top:30px">
-      <h3>Tamamen ücretsiz</h3>
-      <p>Abonelik, kullanıcı sınırı ya da reklam yok.</p>
-      <div class="price">0 ₺</div>
-      <ul class="ticks"><li>Abonelik ve ödeme yok</li><li>Sınırsız cihaz ve oturum süresi</li><li>Reklam ve hesap gerekmez</li></ul>
-      <a class="more dl" href="#">Ücretsiz indirin →</a>
-    </div>
-    <div class="art" style="padding-top:6px">
-      <svg width="170" height="100" viewBox="0 0 170 100" fill="none"><rect x="6" y="14" width="158" height="74" rx="14" fill="#eef2ff"/><circle cx="46" cy="51" r="20" fill="#fff"/><path d="M38 51l6 6 12-13" stroke="#2f5bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="76" y="38" width="70" height="9" rx="4.5" fill="#c9d4ff"/><rect x="76" y="56" width="46" height="9" rx="4.5" fill="#dfe6ff"/></svg>
+      <h3>Tüm özellikler dahil</h3>
+      <p>Her şey tek uygulamada, hepsi ücretsiz.</p>
+      <ul class="ticks allf">
+        <li>Akıcı uzak ekran, 60 FPS</li>
+        <li>Dosya aktarımı (iki yönde)</li>
+        <li>Uzak yazdırma</li>
+        <li>Oturum kaydı ve oynatma</li>
+        <li>Cihaz yönetimi ve gruplar</li>
+        <li>Aynı anda çoklu oturum</li>
+        <li>Taraf değiştirme</li>
+        <li>Sohbet ve pano eşitleme</li>
+        <li>Çoklu monitör ve ses</li>
+        <li>Otomatik güncelleme</li>
+      </ul>
+      <a class="more" href="#ozellikler">Tüm özellikleri gör →</a>
     </div>
   </div>
 </div></section>
