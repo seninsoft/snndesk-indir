@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SNNDESK Yönetim</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-ext-wght-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+1E00-1EFF, U+20A0-20C0; }
+@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+2000-206F, U+20AC; }
+:root { --blue: #2f5bff; --ink: #0d1330; --muted: #5b6785; --line: #e6eaf5; --soft: #f5f7fd; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 500 15px/1.5 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif; color: var(--ink); background: var(--soft); -webkit-font-smoothing: antialiased; }
+.top { background: linear-gradient(165deg, #060a45, #0a1170); color: #fff; padding: 18px 0; }
+.w { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+.top .w { display: flex; align-items: center; gap: 12px; }
+.top img { width: 36px; height: 36px; border-radius: 50%; }
+.top b { font-size: 18px; font-weight: 800; } .top i { font-style: normal; font-weight: 300; color: #a9bfff; }
+.top .sp { flex: 1; }
+.top .upd { font-size: 13px; color: rgba(255,255,255,.7); }
+.login { max-width: 420px; margin: 90px auto; background: #fff; border-radius: 22px; padding: 32px; box-shadow: 0 30px 70px -30px rgba(10,20,90,.4); border: 1px solid var(--line); }
+.login h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: -.02em; }
+.login p { margin: 0 0 18px; color: var(--muted); }
+input { width: 100%; height: 48px; border-radius: 14px; border: 1.5px solid #d9dfeb; padding: 0 16px; font: inherit; margin-bottom: 12px; }
+input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47,91,255,.12); }
+button { height: 46px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--blue); color: #fff; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(47,91,255,.8); }
+button.ghost { background: rgba(255,255,255,.14); box-shadow: none; height: 36px; font-size: 13px; }
+.err { color: #dc2626; font-weight: 600; min-height: 22px; font-size: 14px; }
+main { padding: 28px 0 60px; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 22px; box-shadow: 0 20px 44px -34px rgba(10,20,90,.4); }
+.card .l { color: var(--muted); font-size: 13px; font-weight: 600; }
+.card .n { font-size: 40px; font-weight: 800; letter-spacing: -.04em; line-height: 1.15; margin-top: 4px; background: linear-gradient(135deg, #0a1170, #2f5bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.card .s { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+.row2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-top: 16px; }
+h2 { margin: 0 0 14px; font-size: 16px; letter-spacing: -.01em; }
+.bars { display: flex; align-items: flex-end; gap: 10px; height: 170px; padding-top: 10px; }
+.bar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%; }
+.bar .fill { width: 100%; max-width: 48px; border-radius: 10px 10px 4px 4px; background: linear-gradient(180deg, #5b97ff, #2f5bff); min-height: 3px; position: relative; }
+.bar .v { font-size: 12px; font-weight: 700; } .bar .d { font-size: 11.5px; color: var(--muted); }
+.legend { display: flex; gap: 16px; color: var(--muted); font-size: 12.5px; margin-top: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+td { padding: 9px 0; border-bottom: 1px solid var(--line); } td:last-child { text-align: right; font-weight: 700; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #22c55e; margin-right: 8px; box-shadow: 0 0 0 3px rgba(34,197,94,.2); }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } .row2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="top"><div class="w"><img src="logo.png" alt=""><b>SNN<i>DESK</i> · Yönetim</b><span class="sp"></span><span class="upd" id="upd"></span><button class="ghost" id="out" style="display:none">Çıkış</button></div></div>
+
+<div class="login" id="login">
+  <h1>Yönetim girişi</h1>
+  <p>İstatistikleri görmek için yönetici anahtarını girin.</p>
+  <input type="password" id="key" placeholder="Yönetici anahtarı" autocomplete="off">
+  <div class="err" id="err"></div>
+  <button id="go">Giriş yap</button>
+</div>
+
+<main class="w" id="dash" style="display:none">
+  <div class="grid">
+    <div class="card"><div class="l"><span class="dot"></span>Şu an çevrimiçi</div><div class="n" id="onlineApps">–</div><div class="s">çalışan uygulama</div></div>
+    <div class="card"><div class="l">Bugün aktif cihaz</div><div class="n" id="todayDev">–</div><div class="s">benzersiz cihaz</div></div>
+    <div class="card"><div class="l">Toplam cihaz</div><div class="n" id="totalDev">–</div><div class="s">bugüne kadar bağlanan</div></div>
+    <div class="card"><div class="l">GitHub indirme</div><div class="n" id="dl">–</div><div class="s" id="dlSub">toplam</div></div>
+  </div>
+  <div class="row2">
+    <div class="card"><h2>Son 7 gün: aktif cihaz</h2><div class="bars" id="bars"></div><div class="legend"><span>■ Aktif cihaz</span></div></div>
+    <div class="card"><h2>Ayrıntılar</h2>
+      <table>
+        <tr><td>Bugünkü bağlantı denemesi</td><td id="req">–</td></tr>
+        <tr><td>Çevrimiçi oturum bağlantısı</td><td id="sess">–</td></tr>
+        <tr><td>Son sürüm</td><td id="ver">–</td></tr>
+        <tr><td>Sürüm bazında indirme</td><td id="perRel">–</td></tr>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script>
+const API = 'https://snndesk-signal.snndesk.workers.dev/stats';
+const REPO = 'seninsoft/snndesk-indir';
+let key = '', timer = null;
+const $ = (id) => document.getElementById(id);
+
+async function load() {
+  const r = await fetch(API, { headers: { Authorization: 'Bearer ' + key } });
+  if (r.status === 401) throw new Error('Anahtar yanlış');
+  if (r.status === 429) throw new Error('Çok fazla deneme, bir dakika bekleyin');
+  if (r.status === 503) throw new Error('Sunucuda yönetici anahtarı henüz ayarlanmamış');
+  if (!r.ok) throw new Error('Sunucu hatası (' + r.status + ')');
+  const d = await r.json();
+  $('onlineApps').textContent = d.onlineApps;
+  $('todayDev').textContent = d.today.devices;
+  $('totalDev').textContent = d.total;
+  $('req').textContent = d.today.requests;
+  $('sess').textContent = Math.max(0, d.online - d.onlineApps);
+  const max = Math.max(1, ...d.days.map((x) => x.devices));
+  $('bars').innerHTML = d.days.map((x) => `<div class="bar"><div class="v">${x.devices}</div><div class="fill" style="height:${Math.round((x.devices / max) * 100)}%"></div><div class="d">${x.day.slice(5).replace('-', '.')}</div></div>`).join('');
+  try {
+    const g = await (await fetch(`https://api.github.com/repos/${REPO}/releases`)).json();
+    let total = 0; const per = [];
+    for (const rel of g) { const c = rel.assets.filter((a) => a.name.endsWith('.exe')).reduce((s, a) => s + a.download_count, 0); total += c; per.push(`${rel.tag_name}: ${c}`); }
+    $('dl').textContent = total; $('ver').textContent = g[0]?.tag_name || '–'; $('perRel').textContent = per.join(' · ') || '–';
+  } catch { $('dl').textContent = '?'; }
+  $('upd').textContent = 'Güncellendi ' + new Date().toLocaleTimeString('tr-TR');
+}
+async function enter() {
+  key = $('key').value.trim();
+  $('err').textContent = '';
+  if (!key) return;
+  try {
+    await load();
+    sessionStorage.setItem('k', key);
+    $('login').style.display = 'none'; $('dash').style.display = ''; $('out').style.display = '';
+    clearInterval(timer); timer = setInterval(() => load().catch(() => {}), 30000);
+  } catch (e) { $('err').textContent = e.message; }
+}
+$('go').onclick = enter;
+$('key').onkeydown = (e) => { if (e.key === 'Enter') enter(); };
+$('out').onclick = () => { sessionStorage.removeItem('k'); location.reload(); };
+const saved = sessionStorage.getItem('k');
+if (saved) { $('key').value = saved; enter(); }
+</script>
+</body>
+</html>
