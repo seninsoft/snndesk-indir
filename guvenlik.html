@@ -17,7 +17,7 @@ ul{padding-left:22px}li{margin:6px 0}
 .card{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin:16px 0}
 .warn{background:#fff7f2;border-color:#ffd9c7}
 code{background:var(--soft);border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:14px;word-break:break-all}
-footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}th{background:var(--soft)}.tw{overflow-x:auto}footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
 </style></head><body>
 <div class="nav"><div class="w"><a class="logo" href="./"><img src="logo.png" alt=""><span>SNN<i>DESK</i></span></a><span class="sp"></span><a href="guvenlik.html">Güvenlik</a><a href="gizlilik.html">Gizlilik</a><a class="pill dl" href="#">İndir</a></div></div>
 <div class="w">
@@ -27,8 +27,8 @@ footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid
 
 <h2>Bağlantı nasıl korunuyor?</h2>
 <ul>
-<li><b>Şifreli görüntü ve veri:</b> Ekran, dosya, sohbet ve pano WebRTC ile cihazlar arasında doğrudan (DTLS-SRTP şifreli) akar. Sunucumuz yalnızca bağlantıyı kurmak için kısa kurulum mesajlarını iletir; ekranınızı ve dosyalarınızı görmez.</li>
-<li><b>Parola ağa gönderilmez:</b> Kimlik doğrulama, parolanın kendisi gönderilmeden (HMAC ile karşılıklı doğrulama) yapılır.</li>
+<li><b>Şifreli görüntü ve veri:</b> Ekran, dosya, sohbet ve pano WebRTC ile cihazlar arasında (DTLS-SRTP şifreli) akar. Sunucumuz yalnızca bağlantıyı kurmak için kısa kurulum mesajlarını iletir; ekranınızı ve dosyalarınızı görmez.</li>
+<li><b>Parola ağa düz metin olarak gönderilmez:</b> Kimlik doğrulama, parolanın kendisi gönderilmeden (HMAC ile karşılıklı doğrulama) yapılır.</li>
 <li><b>Yanlış parola kilidi:</b> 5 hatalı denemeden sonra bağlantı 60 saniye kilitlenir.</li>
 <li><b>Güvenlik kodu:</b> Oturum sırasında iki tarafta da aynı 6 haneli kod görünür. Telefonda birbirinize okuyun; aynıysa araya kimse girmemiştir.</li>
 </ul>
@@ -48,26 +48,27 @@ footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid
 <ul>
 <li>Arayüz penceresi izole (sandbox, contextIsolation) çalışır; harici sayfa açılması ve yeni pencere engellenir.</li>
 <li>Yalnızca ekran paylaşımı, ses ve tam ekran izinleri verilir; kamera/konum gibi diğer izinler kapalıdır.</li>
-<li>Güncel Chromium/Electron sürümü kullanılır; yayınlanan paketin bağımlılıklarında bilinen açık yoktur (npm audit: 0).</li>
-<li>Sunucu tarafında yalnızca sayaçlar tutulur (kaç bağlantı kuruldu gibi). Ekran, dosya ve parola içeriği tutulmaz.</li>
+<li>Güncel Chromium/Electron sürümü kullanılır; yayınlandığı tarihte, yazılımın bağımlılıklarında bilinen bir güvenlik açığı bulunmuyordu. Bu durum zamanla değişebilir; güncellemeleri uygulayın.</li>
+<li>Sunucu tarafında yalnızca istatistik sayaçları ve rastgele cihaz kimlikleri tutulur (ayrıntı: <a href="gizlilik.html">Gizlilik / KVKK</a>). Ekran, dosya, pano, sohbet ve parola içeriği tutulmaz.</li>
 </ul>
 
 <h2>İndirdiğiniz dosyayı doğrulayın</h2>
-<p>İndirdiğiniz dosyanın SHA-256 özeti aşağıdaki değerle aynı olmalıdır. PowerShell’de: <code>Get-FileHash .\SNNDESK-Setup.exe</code></p>
+<p>Yazılımı yalnızca resmî adresten indirin: <b>seninsoft.com/snndesk</b>. İndirdiğiniz dosyanın SHA-256 özeti aşağıdaki değerle aynı olmalıdır. PowerShell’de: <code>Get-FileHash .\SNNDESK-Setup.exe</code></p>
 <div class="card"><b>Sürüm:</b> <span id="ver">yükleniyor…</span><br><b>SHA-256:</b> <code id="sha">yükleniyor…</code></div>
 
 <h2>Açık açıklama: sınırlar</h2>
 <div class="card warn"><ul>
 <li><b>Dijital imza yok.</b> Yükleyici henüz kod imzalı değil, bu yüzden Windows SmartScreen “bilinmeyen yayıncı” uyarısı gösterebilir. Dosyanın özetini yukarıdan doğrulayabilirsiniz.</li>
-<li>Bağlantı doğrudan kurulamazsa (sıkı güvenlik duvarı gibi) trafik bir aktarma (TURN) sunucusundan geçer; içerik yine şifrelidir.</li>
-<li><b>Parolanızı yalnızca güvendiğiniz kişiyle paylaşın.</b> Parolayı bilen biri, siz izin verirseniz bilgisayarınızı kullanabilir. Tanımadığınız biri sizi arayıp “parolanızı söyleyin” diyorsa kapatın.</li>
+<li>Bağlantı doğrudan kurulamazsa (sıkı güvenlik duvarı gibi) trafik üçüncü taraf bir ücretsiz aktarma (TURN) hizmetinden geçer; içerik şifreli kalır, ancak bu hizmet sağlayıcı tarafından bildirimsiz durdurulabilir ve bu durumda bazı ağlarda bağlantı kurulamayabilir.</li>
+<li><b>Parolanızı yalnızca güvendiğiniz kişiyle paylaşın.</b> Parolayı bilen biri, siz izin verirseniz bilgisayarınızı kullanabilir. <b>Sizi arayıp “parolanızı söyleyin”, “bankanız için bağlanın” diyen biri dolandırıcıdır; bağlantıyı kesin.</b> Geliştirici sizi arayarak parola veya banka bilgisi istemez.</li>
 <li>UAC/kilit ekranı kontrolü, Windows servisi olarak çalışma ve mobil uygulama bu sürümde yoktur.</li>
+<li>Yazılım “olduğu gibi” sunulur; <a href="kosullar.html">Kullanım Koşulları</a> geçerlidir.</li>
 </ul></div>
 
 <h2>Güvenlik açığı bildirimi</h2>
-<p>Bir açık bulduysanız lütfen kamuya açıklamadan önce bize <a href="https://seninsoft.com" target="_blank" rel="noopener">seninsoft.com</a> üzerindeki iletişim kanalından yazın. Açığı doğrulayıp en kısa sürede düzeltme yayınlamayı hedefliyoruz.</p>
+<p>Bir açık bulduysanız lütfen kamuya açıklamadan önce bize <a href="https://seninsoft.com/iletisim" target="_blank" rel="noopener">seninsoft.com/iletisim</a> üzerinden yazın. Açığı doğrulayıp en kısa sürede düzeltme yayınlamayı hedefliyoruz.</p>
 
-<footer>© <span id="yr"></span> <a href="https://seninsoft.com" target="_blank" rel="noopener">senin soft</a> · <a href="./">Ana sayfa</a> · <a href="guvenlik.html">Güvenlik</a> · <a href="gizlilik.html">Gizlilik</a> · <a href="kosullar.html">Koşullar</a></footer>
+<footer>© <span id="yr"></span> <a href="https://seninsoft.com" target="_blank" rel="noopener">senin soft</a> · <a href="./">Ana sayfa</a> · <a href="guvenlik.html">Güvenlik</a> · <a href="gizlilik.html">Gizlilik</a> · <a href="kosullar.html">Koşullar</a> · <a href="lisanslar.html">Lisanslar</a></footer>
 </div>
 <script>
 const REPO='seninsoft/snndesk-indir',FILE='SNNDESK-Setup.exe';

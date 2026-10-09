@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gizlilik ve KVKK — SNNDESK</title><meta name="description" content="SNNDESK hangi verileri işler, hangilerini işlemez.">
+<title>Gizlilik ve KVKK — SNNDESK</title><meta name="description" content="SNNDESK KVKK aydınlatma metni: hangi veriler işlenir, kimlere aktarılır, haklarınız.">
 <link rel="icon" href="favicon.png" type="image/png">
 <style>
 @font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2'); }
@@ -17,41 +17,56 @@ ul{padding-left:22px}li{margin:6px 0}
 .card{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin:16px 0}
 .warn{background:#fff7f2;border-color:#ffd9c7}
 code{background:var(--soft);border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:14px;word-break:break-all}
-footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}th{background:var(--soft)}.tw{overflow-x:auto}footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
 </style></head><body>
 <div class="nav"><div class="w"><a class="logo" href="./"><img src="logo.png" alt=""><span>SNN<i>DESK</i></span></a><span class="sp"></span><a href="guvenlik.html">Güvenlik</a><a href="gizlilik.html">Gizlilik</a><a class="pill dl" href="#">İndir</a></div></div>
 <div class="w">
 
 <h1>Gizlilik ve KVKK Aydınlatma Metni</h1>
-<p class="lead">Kısaca: SNNDESK hesap istemez, ekranınızı veya dosyalarınızı sunucumuzda saklamaz.</p>
+<p class="lead">Sürüm 1.0 · Yürürlük tarihi: 9 Ekim 2026. 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun (“KVKK”) 10. maddesi uyarınca hazırlanmıştır.</p>
 
-<h2>Veri sorumlusu</h2>
-<p>senin soft (<a href="https://seninsoft.com" target="_blank" rel="noopener">seninsoft.com</a>). İletişim için web sitemizdeki kanalları kullanabilirsiniz.</p>
+<div class="card"><b>Kısaca:</b> SNNDESK hesap, e-posta veya telefon istemez. Ekran görüntüsü, dosya, pano ve sohbet içeriği sunucularımızda <b>saklanmaz</b>. Sunucu tarafında yalnızca bağlantının kurulması için gereken kısa mesajlar ile <b>istatistik amaçlı, rastgele cihaz kimlikleri ve sayaçlar</b> bulunur. IP adresiniz uygulamamız tarafından kalıcı olarak saklanmaz, ancak bağlantı kurulurken kullandığımız altyapı sağlayıcıları tarafından görülür.</div>
 
-<h2>Hangi veriler işlenir?</h2>
-<ul>
-<li><b>Cihazınızda (yerel):</b> cihaz kimliği, ayarlar, bağlantı geçmişi ve isteğe bağlı kaydettiğiniz cihaz listesi. Kayıtlı cihaz parolaları Windows’un güvenli deposuyla şifrelenir. Bunlar yalnızca bilgisayarınızda kalır.</li>
-<li><b>Sinyal sunucusunda (geçici):</b> bağlantıyı kurmak için cihaz kimliği ve kurulum mesajları. Mesajlar kalıcı saklanmaz.</li>
-<li><b>Anonim sayaçlar:</b> toplam bağlantı sayısı, günlük cihaz sayısı gibi toplu istatistikler. Hız sınırı için IP adresi kısa süreli kullanılır ve kalıcı kaydedilmez.</li>
-<li><b>Aktarma (TURN) sunucusu:</b> doğrudan bağlantı kurulamazsa şifreli trafik üçüncü taraf bir aktarma sunucusundan geçer. İçeriği okunamaz.</li>
-</ul>
+<h2>1. Veri sorumlusu</h2>
+<p><b>Senin Soft Teknoloji</b> · Adres: Erikli Mah. Enginar Sok. No: 16, Yıldırım / Bursa · Tel: 0850 304 2142 · <a href="https://seninsoft.com/iletisim" target="_blank" rel="noopener">seninsoft.com/iletisim</a></p>
 
-<h2>Hangi veriler işlenmez?</h2>
-<ul>
-<li>Ekran görüntüsü/video, dosya içeriği, pano ve sohbet metinleri sunucularımızda saklanmaz; cihazlar arasında doğrudan şifreli aktarılır.</li>
-<li>Reklam, takip çerezi veya üçüncü taraf analiz aracı kullanılmaz. Hesap, e-posta veya telefon istenmez.</li>
-</ul>
+<h2>2. İşlenen kişisel veriler, amaçlar, hukuki sebepler ve saklama süreleri</h2>
+<div class="tw"><table>
+<tr><th>Veri</th><th>Amaç</th><th>Nerede / ne kadar</th></tr>
+<tr><td><b>Rastgele cihaz kimliği</b> (9 haneli, kurulumda üretilir; ad, hesap veya telefonla ilişkilendirilmez)</td><td>Cihazların birbirini bulması ve bağlantının kurulması; kötüye kullanımın önlenmesi; kullanım istatistiği</td><td>Bağlantı sürerken sunucu belleğinde. İstatistik için günlük kayıt (en fazla yaklaşık 8 gün) ve “toplam benzersiz cihaz” sayısı için kimlik, hizmet süresince saklanır. Silme talebi halinde silinir (bkz. madde 7).</td></tr>
+<tr><td><b>IP adresi</b></td><td>Bağlantının teknik olarak kurulması; hız sınırlama ve kötüye kullanım önleme</td><td>Uygulamamız IP adresini <b>kalıcı olarak saklamaz</b>; hız sınırı için kısa süreli bellekte kullanılır. Altyapı sağlayıcıları (Cloudflare, GitHub, TURN hizmeti) ağ trafiği gereği IP adresini görür ve kendi politikalarına göre kayıt tutabilir.</td></tr>
+<tr><td><b>Cihaz adı</b> (varsayılan olarak Windows bilgisayar adı veya sizin girdiğiniz ad; isteğe bağlı marka adı)</td><td>Bağlanmak isteyen veya bağlanılan tarafın karşı tarafı tanıması, onay penceresinde göstermek</td><td>Bağlantı isteğiyle karşı tarafa iletilir; <b>sunucuda saklanmaz</b>. Uygulama ayarlarından değiştirilebilir.</td></tr>
+<tr><td><b>Bağlantı kurulum bilgileri</b> (ağ adresi adayları, şifreleme parmak izleri, yetkilendirme mesajları)</td><td>Cihazlar arasında şifreli bağlantının kurulması</td><td>Sinyal sunucusundan geçer, <b>saklanmaz</b>.</td></tr>
+<tr><td><b>Oturum içeriği</b> (ekran, ses, klavye/fare, dosya, pano, sohbet)</td><td>Uzaktan destek işlevi</td><td>Cihazlar arasında şifreli aktarılır; sunucularımızda <b>saklanmaz</b>. Doğrudan bağlantı kurulamazsa şifreli trafik aktarma (TURN) sunucusundan geçer; aktarma sunucusu içeriği çözemez.</td></tr>
+<tr><td><b>Yerel uygulama verileri</b> (ayarlar, bağlantı geçmişi, kayıtlı cihazlar ve Windows güvenli deposuyla şifrelenen parolalar, oturum kayıtları, alınan dosyalar)</td><td>Uygulamanın çalışması</td><td><b>Yalnızca sizin bilgisayarınızda</b> tutulur; Geliştirici erişmez. Uygulamayı kaldırıp <code>%APPDATA%\SNNDESK</code> ve <code>İndirilenler\SNNDESK</code> klasörlerini silerek kaldırabilirsiniz.</td></tr>
+<tr><td><b>Güncelleme denetimi</b> (IP adresi, uygulama sürümü)</td><td>Yeni sürüm olup olmadığını denetlemek ve indirmek</td><td>GitHub’a yapılır; GitHub’ın kendi politikasına göre tutulur.</td></tr>
+<tr><td><b>Web sayfası ziyareti</b></td><td>Sayfanın sunulması; güncel sürüm ve boyut bilgisinin gösterilmesi</td><td>Tanıtım sayfaları çerez veya üçüncü taraf izleme aracı kullanmaz. Sürüm bilgisi için tarayıcınız GitHub API’sine istek yapar (IP adresiniz GitHub’a iletilir). Barındırma sunucuları standart erişim kayıtları (IP, tarih, sayfa) tutabilir.</td></tr>
+<tr><td><b>İletişim</b> (bize WhatsApp, telefon veya form ile yazarsanız ilettiğiniz bilgiler)</td><td>Talebinize yanıt vermek</td><td>Yazışma süresince ve olası uyuşmazlıklar için yasal zamanaşımı süresi boyunca.</td></tr>
+</table></div>
+<p><b>Hukuki sebepler:</b> KVKK m.5/2-c (Hizmetin sunulması için sözleşmenin ifası), m.5/2-f (veri sorumlusunun meşru menfaati: hizmet güvenliği, kötüye kullanımın önlenmesi, istatistik) ve gerektiğinde m.5/2-ç (hukuki yükümlülük). Ekran, ses, klavye/fare, dosya, pano ve sohbet içeriklerini Geliştirici işlemez; bu içeriklerdeki üçüncü kişilerin verileri bakımından, işleme amaç ve vasıtalarını belirleyen Kullanıcı sorumludur (bkz. <a href="kosullar.html">Kullanım Koşulları</a> m.4 ve m.11).</p>
+<p><b>Özel nitelikli veriler:</b> Geliştirici özel nitelikli kişisel verileri işlemez. Oturum sırasında görünebilecek veriler Kullanıcı’nın sorumluluğundadır.</p>
 
-<h2>Oturum kaydı</h2>
-<p>Kayıt özelliği yalnızca bağlanan tarafın cihazında, yerel olarak video dosyası üretir ve karşı taraf uyarılır. Kayıtlar bize gönderilmez. Kayıt almadan önce ilgili kişilerin bilgilendirilmesi ve gerekli izinlerin alınması kullanıcının sorumluluğundadır.</p>
+<h2>3. Verilerin toplanma yöntemi</h2>
+<p>Veriler, uygulamanın ve tanıtım sayfalarının kullanımı sırasında otomatik yollarla (elektronik ortamda) toplanır. Hesap açma, ödeme veya kimlik doğrulama gerektiren bir süreç yoktur.</p>
 
-<h2>Haklarınız</h2>
-<p>6698 sayılı KVKK’nın 11. maddesi kapsamında verilerinize erişme, düzeltme, silme ve itiraz hakkınız vardır. Veriler esas olarak cihazınızda tutulduğundan uygulamayı kaldırıp <code>%APPDATA%\SNNDESK</code> klasörünü silerek yerel verilerinizi silebilirsiniz. Diğer talepleriniz için bize ulaşın.</p>
+<h2>4. Verilerin aktarıldığı taraflar ve yurt dışına aktarım</h2>
+<p>Hizmetin teknik olarak sunulması için yukarıdaki sınırlı veriler şu hizmet sağlayıcıların altyapısından geçer: <b>Cloudflare, Inc.</b> (sinyal sunucusu), <b>GitHub, Inc.</b> (yazılım dağıtımı, güncelleme denetimi ve tanıtım sayfası barındırma) ve doğrudan bağlantı kurulamadığında <b>üçüncü taraf bir ücretsiz aktarma (TURN) hizmeti</b> (ExpressTURN; işleticisi ve bulunduğu ülke sağlayıcı tarafından açıkça belirtilmemektedir). Bu sağlayıcıların sunucuları <b>yurt dışında</b> bulunabilir; bu nedenle aktarım KVKK m.9 kapsamında yurt dışına aktarım niteliğindedir. Aktarım, Hizmetin sunulması için zorunlu ve sınırlı verilerle (rastgele cihaz kimliği, IP adresi, şifreli trafik) yapılır. Bu aktarımı kabul etmiyorsanız Hizmeti kullanmayınız. Yasal yükümlülük halinde yetkili kamu kurumlarına bilgi verilebilir.</p>
 
-<h2>Sorumluluk</h2>
-<p>SNNDESK “olduğu gibi” ve ücretsiz sunulur. Yazılımı yalnızca yetkili olduğunuz cihazlarda kullanın; parolanızı tanımadığınız kişilerle paylaşmayın. Bu metin genel bilgilendirme amaçlıdır ve değişebilir; güncel hali bu sayfada yayımlanır.</p>
+<h2>5. Güvenlik tedbirleri (KVKK m.12)</h2>
+<p>Oturum içeriği cihazlar arasında şifreli (WebRTC / DTLS-SRTP) aktarılır; parola ağdan düz metin olarak geçmez (karşılıklı HMAC doğrulaması); kontrol, dosya ve yazdırma izinleri varsayılan olarak kapalıdır; hatalı parola denemelerinde bağlantı geçici kilitlenir; kayıtlı parolalar Windows güvenli deposuyla şifrelenir; yönetim istatistiklerine erişim anahtarla korunur. Kişisel veri güvenliği ihlali halinde mevzuattaki bildirim yükümlülükleri yerine getirilir. <b>Hiçbir sistem için mutlak güvenlik garantisi verilemez.</b></p>
 
-<footer>© <span id="yr"></span> <a href="https://seninsoft.com" target="_blank" rel="noopener">senin soft</a> · <a href="./">Ana sayfa</a> · <a href="guvenlik.html">Güvenlik</a> · <a href="gizlilik.html">Gizlilik</a> · <a href="kosullar.html">Koşullar</a></footer>
+<h2>6. Çocuklar</h2>
+<p>SNNDESK 18 yaşından küçüklere yönelik değildir. Reşit olmayan kişilerin kullanımı velisinin gözetiminde olmalıdır.</p>
+
+<h2>7. KVKK m.11 kapsamındaki haklarınız ve başvuru</h2>
+<p>Veri sorumlusuna başvurarak şu haklarınızı kullanabilirsiniz: kişisel verilerinizin işlenip işlenmediğini öğrenme; işlenmişse bilgi talep etme; işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme; yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme; eksik veya yanlış işlenmişse düzeltilmesini isteme; KVKK m.7 çerçevesinde silinmesini veya yok edilmesini isteme ve bunun aktarıldığı üçüncü kişilere bildirilmesini isteme; işlenen verilerin otomatik sistemlerle analiz edilmesi suretiyle aleyhinize bir sonuç çıkmasına itiraz etme; kanuna aykırı işleme nedeniyle zarara uğramanız halinde zararın giderilmesini talep etme.</p>
+<p><b>Başvuru yöntemi:</b> “Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ” uyarınca, kimliğinizi tespit edici bilgiler ve talebinizi içeren <b>yazılı</b> başvurunuzu şahsen, noter aracılığıyla veya posta ile <b>Erikli Mah. Enginar Sok. No: 16, Yıldırım / Bursa</b> adresine iletebilirsiniz. Cihaz kimliğinize ilişkin sunucu kaydının silinmesini istiyorsanız, başvurunuzda uygulamanızda görünen <b>9 haneli cihaz kimliğinizi</b> belirtmeniz yeterlidir; kimlik başka bir kişisel veriyle ilişkilendirilmediğinden bu bilgi olmadan kaydı bulamayız. Başvurularınız, talebin niteliğine göre en geç <b>30 gün</b> içinde ücretsiz sonuçlandırılır; işlemin ayrıca bir maliyet gerektirmesi halinde Kişisel Verileri Koruma Kurulu’nca belirlenen tarifedeki ücret alınabilir. Başvurunuza verilen cevabı yetersiz bulursanız, cevabı öğrenmenizden itibaren 30 gün içinde ve her halde başvuru tarihinden itibaren 60 gün içinde Kişisel Verileri Koruma Kurulu’na şikâyette bulunabilirsiniz.</p>
+
+<h2>8. Değişiklikler</h2>
+<p>Bu metin güncellenebilir; güncel hali bu sayfada yayımlanır ve yürürlük tarihi yukarıda belirtilir.</p>
+<div class="card warn"><b>Not:</b> Bu metin genel bilgilendirme amacıyla hazırlanmıştır ve hukuki danışmanlık yerine geçmez.</div>
+
+<footer>© <span id="yr"></span> <a href="https://seninsoft.com" target="_blank" rel="noopener">senin soft</a> · <a href="./">Ana sayfa</a> · <a href="guvenlik.html">Güvenlik</a> · <a href="gizlilik.html">Gizlilik</a> · <a href="kosullar.html">Koşullar</a> · <a href="lisanslar.html">Lisanslar</a></footer>
 </div>
 <script>
 const REPO='seninsoft/snndesk-indir',FILE='SNNDESK-Setup.exe';

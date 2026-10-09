@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Üçüncü Taraf Lisanslar — SNNDESK</title><meta name="description" content="SNNDESK’te kullanılan açık kaynaklı bileşenler ve lisansları.">
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2'); }
+:root{--blue:#2f5bff;--ink:#0d1330;--muted:#5b6785;--line:#e6eaf5;--soft:#f5f7fd;--orange:#ff6a2b}
+*{box-sizing:border-box}body{margin:0;font:500 16px/1.7 'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;color:var(--ink);background:#fff}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.w{width:min(860px,calc(100% - 40px));margin:0 auto}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px)}
+.nav .w{display:flex;align-items:center;gap:18px;height:64px;width:min(1000px,calc(100% - 40px))}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--ink)}.logo:hover{text-decoration:none}.logo img{width:34px;height:34px;border-radius:50%}.logo i{font-style:normal;font-weight:300;color:#5d76ff}
+.sp{flex:1}.pill{display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:999px;background:var(--orange);color:#fff;font-weight:700;font-size:14px}.pill:hover{text-decoration:none}
+h1{font-size:38px;line-height:1.2;margin:48px 0 8px}h2{font-size:23px;margin:38px 0 8px}p.lead{color:var(--muted);font-size:18px;margin:0 0 8px}
+ul{padding-left:22px}li{margin:6px 0}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin:16px 0}
+.warn{background:#fff7f2;border-color:#ffd9c7}
+code{background:var(--soft);border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:14px;word-break:break-all}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}th{background:var(--soft)}.tw{overflow-x:auto}footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+</style></head><body>
+<div class="nav"><div class="w"><a class="logo" href="./"><img src="logo.png" alt=""><span>SNN<i>DESK</i></span></a><span class="sp"></span><a href="guvenlik.html">Güvenlik</a><a href="gizlilik.html">Gizlilik</a><a class="pill dl" href="#">İndir</a></div></div>
+<div class="w">
+
+<h1>Üçüncü Taraf Lisanslar</h1>
+<p class="lead">SNNDESK, aşağıdaki açık kaynaklı bileşenleri kendi lisansları kapsamında kullanır. Bu bileşenlerin telif hakları ilgili sahiplerine aittir.</p>
+
+<div class="tw"><table>
+<tr><th>Bileşen</th><th>Lisans</th><th>Not</th></tr>
+<tr><td>Electron (v44) ve içindeki Chromium ile bağımlılıkları</td><td>MIT ve Chromium’un çeşitli açık kaynak lisansları</td><td>Kurulum klasöründeki <code>LICENSE.electron.txt</code> ve <code>LICENSES.chromium.html</code> dosyalarında tam metinler bulunur.</td></tr>
+<tr><td>electron-updater, builder-util-runtime</td><td>MIT</td><td>Otomatik güncelleme</td></tr>
+<tr><td>koffi</td><td>MIT</td><td>Windows API çağrıları</td></tr>
+<tr><td>ws</td><td>MIT</td><td>WebSocket bağlantısı</td></tr>
+<tr><td>fs-extra, js-yaml, debug, lodash.isequal, tiny-typed-emitter ve diğer yardımcı paketler</td><td>MIT / ISC</td><td>Her paketin lisans metni kurulum klasöründeki ilgili paket dizininde yer alır.</td></tr>
+<tr><td>Plus Jakarta Sans (yazı tipi)</td><td>SIL Open Font License 1.1</td><td>Copyright 2020 The Plus Jakarta Sans Project Authors (<a href="https://github.com/tokotype/PlusJakartaSans" target="_blank" rel="noopener">github.com/tokotype/PlusJakartaSans</a>). Lisans metni: <a href="https://openfontlicense.org" target="_blank" rel="noopener">openfontlicense.org</a></td></tr>
+<tr><td>Inter (yazı tipi)</td><td>SIL Open Font License 1.1</td><td>Copyright The Inter Project Authors (<a href="https://github.com/rsms/inter" target="_blank" rel="noopener">github.com/rsms/inter</a>). Lisans metni: <a href="https://openfontlicense.org" target="_blank" rel="noopener">openfontlicense.org</a></td></tr>
+</table></div>
+<p>MIT lisansı özetle şunu der: Yazılım “olduğu gibi”, hiçbir garanti olmaksızın sunulur ve telif hakkı bildirimi ile lisans metni korunur. Yazı tipleri SIL OFL kapsamında ayrı olarak satılamaz; yazı tipi dosyaları lisanslarıyla birlikte aynen sunulmaktadır.</p>
+<p>Bu bileşenlerin kullanımı, SNNDESK’in kendisinin <a href="kosullar.html">Kullanım Koşulları</a>’nın kapsamını değiştirmez. İletişim: <a href="https://seninsoft.com/iletisim" target="_blank" rel="noopener">seninsoft.com/iletisim</a></p>
+
+<footer>© <span id="yr"></span> <a href="https://seninsoft.com" target="_blank" rel="noopener">senin soft</a> · <a href="./">Ana sayfa</a> · <a href="guvenlik.html">Güvenlik</a> · <a href="gizlilik.html">Gizlilik</a> · <a href="kosullar.html">Koşullar</a> · <a href="lisanslar.html">Lisanslar</a></footer>
+</div>
+<script>
+const REPO='seninsoft/snndesk-indir',FILE='SNNDESK-Setup.exe';
+document.querySelectorAll('.dl').forEach(a=>a.href=`https://github.com/${REPO}/releases/latest/download/${FILE}`);
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+</script></body></html>
