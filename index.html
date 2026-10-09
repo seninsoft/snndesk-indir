@@ -191,6 +191,21 @@ footer .col a:hover { color: var(--blue); }
 .rv { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
 .rv.in { opacity: 1; transform: none; }
 
+.phone { width: 250px; margin: 0 auto; border-radius: 38px; background: #0b1020; padding: 10px; box-shadow: 0 40px 80px -30px rgba(10,20,90,.6), 0 0 0 1px rgba(10,20,90,.2); }
+.phone .scr { border-radius: 28px; overflow: hidden; background: #000; aspect-ratio: 9 / 17; display: flex; flex-direction: column; }
+.phone .pt { display: flex; gap: 5px; padding: 12px 10px 8px; }
+.phone .pt span { font-size: 9.5px; font-weight: 700; color: #fff; background: rgba(255,255,255,.16); padding: 3px 8px; border-radius: 999px; }
+.phone .pc { flex: 1; margin: 0 8px; border-radius: 10px; position: relative; overflow: hidden; background: radial-gradient(300px 200px at 20% 10%, #7a5cff 0%, transparent 60%), radial-gradient(300px 200px at 90% 90%, #1fb6ff 0%, transparent 60%), linear-gradient(135deg, #1b2b8a, #3a1e8f); }
+.phone .pc .w1 { position: absolute; left: 8%; top: 12%; width: 84%; height: 40%; border-radius: 6px; background: rgba(255,255,255,.95); }
+.phone .pc .w1 i { display: block; height: 6px; border-radius: 3px; background: #dfe5f3; margin: 9px 10px 0; }
+.phone .pc .w1 i:first-child { margin-top: 14px; width: 60%; }
+.phone .pc .w2 { position: absolute; left: 8%; top: 58%; width: 56%; height: 24%; border-radius: 6px; background: rgba(18,24,48,.96); }
+.phone .pc .dot { position: absolute; left: 55%; top: 40%; width: 20px; height: 20px; border-radius: 50%; background: rgba(255,106,43,.6); border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.5); animation: fl 5s ease-in-out infinite; }
+.phone .pb { display: flex; gap: 4px; justify-content: center; padding: 8px 6px 12px; }
+.phone .pb i { font-style: normal; font-size: 8.5px; font-weight: 700; color: #fff; background: rgba(255,255,255,.14); padding: 5px 7px; border-radius: 999px; }
+.phone .pb i.o { background: #ff6a2b; }
+.beta-note { margin-top: 18px; padding: 12px 14px; border-radius: 14px; background: #fff7f2; border: 1px solid #ffd9c7; font-size: 13.5px; color: #5a3320; }
+
 @media (max-width: 980px) {
   .cards .w { grid-template-columns: 1fr; }
   .feats, .steps { grid-template-columns: 1fr; }
@@ -216,6 +231,7 @@ footer .col a:hover { color: var(--blue); }
     <a href="#ozellikler">Özellikler</a>
     <a href="#nasil">Nasıl çalışır</a>
     <a href="#guvenlik">Güvenlik</a>
+    <a href="#telefon">Telefondan bağlan</a>
     <a href="#sss">SSS</a>
   </nav>
   <span class="sp"></span>
@@ -230,6 +246,7 @@ footer .col a:hover { color: var(--blue); }
   <div class="btns">
     <a class="btn white dl" href="#"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Windows için ücretsiz indirin</a>
     <a class="btn ghost" href="#nasil">Nasıl çalışır?</a>
+    <a class="btn ghost" href="https://seninsoft.com/snndesk-app/baglan.html">Telefondan bağlan (beta)</a>
   </div>
   <div class="meta" id="meta">Ücretsiz · Windows 10 / 11 · 64 bit</div>
   <div class="meta" style="margin-top:8px">İndirerek <a href="kosullar.html" style="text-decoration:underline">Kullanım Koşulları</a>’nı kabul etmiş olursunuz · <a href="gizlilik.html" style="text-decoration:underline">Gizlilik / KVKK</a></div>
@@ -340,6 +357,23 @@ footer .col a:hover { color: var(--blue); }
   </div>
 </div></section>
 
+<section class="s" id="telefon" style="padding-top:30px"><div class="w">
+  <div class="show">
+    <div class="txt rv"><div class="eyebrow">Beta · Telefondan bağlan</div><h2 class="t">Telefonunuzdan<br>bilgisayarınıza bağlanın</h2>
+      <p class="sub">Uygulama kurmadan, telefonunuzun tarayıcısından bağlanın. Yolda veya evde dışarıdayken bilgisayarınıza bir göz atın ya da uzaktan yardım edin.</p>
+      <ul class="ticks"><li>Bilgisayarda SNNDESK açık olsun, kimliği ve parolayı alın</li><li>Telefonda sayfayı açın, kimliği ve parolayı girin</li><li>Dokunarak tıklayın, iki parmakla sağ tık ve kaydırma yapın, ekran klavyesiyle yazın</li></ul>
+      <a class="btn blue" href="https://seninsoft.com/snndesk-app/baglan.html">Tarayıcıdan bağlan (beta)</a>
+      <div class="beta-note"><b>Beta sürüm:</b> Yalnızca doğrudan bağlantı kurulabilen ağlarda çalışır (bazı mobil veri ağlarında bağlanamayabilir), dosya aktarımı yoktur ve bazı karakterler desteklenmeyebilir. Karşı tarafın onayı ve izinleri aynen geçerlidir.</div></div>
+    <div class="blob rv">
+      <div class="phone"><div class="scr">
+        <div class="pt"><span>325 222 361</span><span>🔒 368 870</span></div>
+        <div class="pc"><div class="w1"><i></i><i></i><i></i></div><div class="w2"></div><div class="dot"></div></div>
+        <div class="pb"><i>Klavye</i><i>Tuşlar</i><i>Sağ tık</i><i class="o">Kes</i></div>
+      </div></div>
+    </div>
+  </div>
+</div></section>
+
 <section class="s" id="nasil" style="background:var(--soft)"><div class="w">
   <div class="head rv"><div class="eyebrow">Nasıl çalışır</div><h2 class="t">Üç adımda bağlanın</h2><p class="sub">Kurulum bir dakika sürer, hesap açmanız gerekmez.</p></div>
   <div class="steps">
@@ -372,6 +406,7 @@ footer .col a:hover { color: var(--blue); }
     <details><summary>Birisi izinsiz bilgisayarıma bağlanabilir mi?</summary><p>Bağlanmak için parolanızı bilmesi ya da sizin onay vermeniz gerekir. Hatalı parola denemelerinde bağlantı geçici olarak kilitlenir; kontrol, dosya ve yazdırma izinleri varsayılan olarak kapalıdır. Hiçbir yazılım mutlak güvenlik garantisi vermez: parolanızı yalnızca güvendiğiniz kişilerle paylaşın.</p></details>
     <details><summary>Biri beni arayıp “bağlanın, parolayı söyleyin” derse ne yapmalıyım?</summary><p>Telefonu kapatın ve bağlanmayın. Dolandırıcılar “teknik destek” veya “banka” adıyla uzak masaüstü bağlantısı kurdurmaya çalışabilir. Senin Soft sizi arayarak parola, banka veya kart bilgisi istemez; bankalar da uzak masaüstü programı kurmanızı istemez.</p></details>
     <details><summary>Verilerim nerede tutuluyor?</summary><p>Ekran, dosya, pano ve sohbet içeriği sunucularımızda saklanmaz. Sunucuda yalnızca bağlantıyı kuran kısa mesajlar geçer (saklanmaz) ve istatistik için rastgele cihaz kimlikleri ile sayaçlar tutulur. Ayrıntılar: <a href="gizlilik.html" style="text-decoration:underline">Gizlilik ve KVKK Aydınlatma Metni</a>.</p></details>
+    <details><summary>Telefondan bilgisayarıma bağlanabilir miyim?</summary><p>Evet, beta olarak: telefonunuzun tarayıcısında <a href="https://seninsoft.com/snndesk-app/baglan.html" style="text-decoration:underline">seninsoft.com/snndesk-app/baglan.html</a> adresini açıp bilgisayarın kimliğini ve parolasını girersiniz; uygulama kurmanız gerekmez. Bilgisayarda SNNDESK açık olmalıdır. Beta sürümde yalnızca doğrudan bağlantı kurulabilen ağlarda çalışır, dosya aktarımı yoktur ve yazı yazarken bazı karakterler desteklenmeyebilir. Android/iOS mağaza uygulaması şimdilik yoktur.</p></details>
     <details><summary>Bağlantıyı nasıl keserim?</summary><p>Oturum sürerken ekranınızın üstündeki “Bitir” düğmesine ya da uygulamadaki “Bağlantıyı Kes”e basmanız yeterli.</p></details>
     <details><summary>Uygulamayı nasıl kaldırırım?</summary><p>Windows Ayarlar › Uygulamalar bölümünden SNNDESK'i seçip kaldırabilirsiniz.</p></details>
   </div>
