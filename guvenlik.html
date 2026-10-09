@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Güvenlik — SNNDESK</title><meta name="description" content="SNNDESK güvenlik önlemleri, sınırlar ve açık açıklama.">
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+@font-face { font-family: 'Plus Jakarta Sans'; font-weight: 200 800; font-display: swap; src: url('assets/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2'); }
+:root{--blue:#2f5bff;--ink:#0d1330;--muted:#5b6785;--line:#e6eaf5;--soft:#f5f7fd;--orange:#ff6a2b}
+*{box-sizing:border-box}body{margin:0;font:500 16px/1.7 'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;color:var(--ink);background:#fff}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.w{width:min(860px,calc(100% - 40px));margin:0 auto}
+.nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px)}
+.nav .w{display:flex;align-items:center;gap:18px;height:64px;width:min(1000px,calc(100% - 40px))}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--ink)}.logo:hover{text-decoration:none}.logo img{width:34px;height:34px;border-radius:50%}.logo i{font-style:normal;font-weight:300;color:#5d76ff}
+.sp{flex:1}.pill{display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:999px;background:var(--orange);color:#fff;font-weight:700;font-size:14px}.pill:hover{text-decoration:none}
+h1{font-size:38px;line-height:1.2;margin:48px 0 8px}h2{font-size:23px;margin:38px 0 8px}p.lead{color:var(--muted);font-size:18px;margin:0 0 8px}
+ul{padding-left:22px}li{margin:6px 0}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin:16px 0}
+.warn{background:#fff7f2;border-color:#ffd9c7}
+code{background:var(--soft);border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:14px;word-break:break-all}
+footer{margin:60px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+</style></head><body>
+<div class="nav"><div class="w"><a class="logo" href="./"><img src="logo.png" alt=""><span>SNN<i>DESK</i></span></a><span class="sp"></span><a href="guvenlik.html">Güvenlik</a><a href="gizlilik.html">Gizlilik</a><a class="pill dl" href="#">İndir</a></div></div>
+<div class="w">
+
+<h1>Güvenlik</h1>
+<p class="lead">Neyi koruduğumuzu ve neyi garanti edemeyeceğimizi açıkça yazıyoruz. Hiçbir yazılım “yüzde yüz güvenli” değildir; biz bunu iddia etmiyoruz.</p>
+
+<h2>Bağlantı nasıl korunuyor?</h2>
+<ul>
+<li><b>Şifreli görüntü ve veri:</b> Ekran, dosya, sohbet ve pano WebRTC ile cihazlar arasında doğrudan (DTLS-SRTP şifreli) akar. Sunucumuz yalnızca bağlantıyı kurmak için kısa kurulum mesajlarını iletir; ekranınızı ve dosyalarınızı görmez.</li>
+<li><b>Parola ağa gönderilmez:</b> Kimlik doğrulama, parolanın kendisi gönderilmeden (HMAC ile karşılıklı doğrulama) yapılır.</li>
+<li><b>Yanlış parola kilidi:</b> 5 hatalı denemeden sonra bağlantı 60 saniye kilitlenir.</li>
+<li><b>Güvenlik kodu:</b> Oturum sırasında iki tarafta da aynı 6 haneli kod görünür. Telefonda birbirinize okuyun; aynıysa araya kimse girmemiştir.</li>
+</ul>
+
+<h2>Güvenli varsayılanlar</h2>
+<ul>
+<li>Fare/klavye kontrolü, dosya aktarımı ve uzaktan yazdırma <b>varsayılan olarak kapalıdır</b>. Parolayla bağlanan kişi önce yalnızca izler.</li>
+<li>Onay penceresinde izinleri tek tek siz verirsiniz; oturum sırasında istediğiniz an kapatabilirsiniz.</li>
+<li>“Her bağlantıda onay iste” (güvenli mod) ayarı ile parola girilse bile sizin onayınız gerekir.</li>
+<li>Her oturum bitince geçici parola otomatik yenilenir. Parola 10 karakterdir.</li>
+<li>Çalıştırılabilir dosyalar (.exe, .msi, .bat, .ps1 vb.) varsayılan olarak alınmaz.</li>
+<li>Oturum sırasında ekranın üstünde sürekli görünen bir şerit vardır; <b>Bitir</b> düğmesiyle anında kesebilirsiniz. Kayıt alınıyorsa ayrıca uyarılırsınız.</li>
+<li>Boşta kalan oturum varsayılan 60 dakikada otomatik kapanır.</li>
+</ul>
+
+<h2>Uygulama içi sertleştirme</h2>
+<ul>
+<li>Arayüz penceresi izole (sandbox, contextIsolation) çalışır; harici sayfa açılması ve yeni pencere engellenir.</li>
+<li>Yalnızca ekran paylaşımı, ses ve tam ekran izinleri verilir; kamera/konum gibi diğer izinler kapalıdır.</li>
+<li>Güncel Chromium/Electron sürümü kullanılır; yayınlanan paketin bağımlılıklarında bilinen açık yoktur (npm audit: 0).</li>
+<li>Sunucu tarafında yalnızca sayaçlar tutulur (kaç bağlantı kuruldu gibi). Ekran, dosya ve parola içeriği tutulmaz.</li>
+</ul>
+
+<h2>İndirdiğiniz dosyayı doğrulayın</h2>
+<p>İndirdiğiniz dosyanın SHA-256 özeti aşağıdaki değerle aynı olmalıdır. PowerShell’de: <code>Get-FileHash .\SNNDESK-Setup.exe</code></p>
+<div class="card"><b>Sürüm:</b> <span id="ver">yükleniyor…</span><br><b>SHA-256:</b> <code id="sha">yükleniyor…</code></div>
+
+<h2>Açık açıklama: sınırlar</h2>
+<div class="card warn"><ul>
+<li><b>Dijital imza yok.</b> Yükleyici henüz kod imzalı değil, bu yüzden Windows SmartScreen “bilinmeyen yayıncı” uyarısı gösterebilir. Dosyanın özetini yukarıdan doğrulayabilirsiniz.</li>
+<li>Bağlantı doğrudan kurulamazsa (sıkı güvenlik duvarı gibi) trafik bir aktarma (TURN) sunucusundan geçer; içerik yine şifrelidir.</li>
+<li><b>Parolanızı yalnızca güvendiğiniz kişiyle paylaşın.</b> Parolayı bilen biri, siz izin verirseniz bilgisayarınızı kullanabilir. Tanımadığınız biri sizi arayıp “parolanızı söyleyin” diyorsa kapatın.</li>
+<li>UAC/kilit ekranı kontrolü, Windows servisi olarak çalışma ve mobil uygulama bu sürümde yoktur.</li>
+</ul></div>
+
+<h2>Güvenlik açığı bildirimi</h2>
+<p>Bir açık bulduysanız lütfen kamuya açıklamadan önce bize <a href="https://seninsoft.com" target="_blank" rel="noopener">seninsoft.com</a> üzerindeki iletişim kanalından yazın. Açığı doğrulayıp en kısa sürede düzeltme yayınlamayı hedefliyoruz.</p>
+
+<footer>© <span id="yr"></span> <a href="https://seninsoft.com" target="_blank" rel="noopener">senin soft</a> · <a href="./">Ana sayfa</a> · <a href="guvenlik.html">Güvenlik</a> · <a href="gizlilik.html">Gizlilik</a></footer>
+</div>
+<script>
+const REPO='seninsoft/snndesk-indir',FILE='SNNDESK-Setup.exe';
+document.querySelectorAll('.dl').forEach(a=>a.href=`https://github.com/${REPO}/releases/latest/download/${FILE}`);
+document.getElementById('yr').textContent=new Date().getFullYear();
+fetch(`https://api.github.com/repos/${REPO}/releases/latest`).then(r=>r.ok?r.json():null).then(j=>{
+  if(!j)return;const a=(j.assets||[]).find(x=>x.name===FILE);
+  document.getElementById('ver').textContent=String(j.tag_name).replace(/^v/,'');
+  document.getElementById('sha').textContent=a&&a.digest?a.digest.replace(/^sha256:/,''):'GitHub sürüm sayfasından görüntüleyin';
+}).catch(()=>{document.getElementById('ver').textContent='—';document.getElementById('sha').textContent='alınamadı';});
+</script></body></html>
