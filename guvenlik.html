@@ -40,6 +40,7 @@ table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}th,td{b
 <li>“Her bağlantıda onay iste” (güvenli mod) ayarı ile parola girilse bile sizin onayınız gerekir.</li>
 <li>Her oturum bitince geçici parola otomatik yenilenir. Parola 10 karakterdir.</li>
 <li>Çalıştırılabilir dosyalar (.exe, .msi, .bat, .ps1 vb.) varsayılan olarak alınmaz.</li>
+<li><b>Ses varsayılan olarak kapalıdır:</b> Bağlanan kişiye bilgisayarınızın sesi gönderilmez; isterseniz ayarlardan açabilirsiniz. <b>Mikrofon hiçbir zaman paylaşılmaz.</b></li>
 <li>Oturum sırasında ekranın üstünde sürekli görünen bir şerit vardır; <b>Bitir</b> düğmesiyle anında kesebilirsiniz. Kayıt alınıyorsa ayrıca uyarılırsınız.</li>
 <li>Boşta kalan oturum varsayılan 60 dakikada otomatik kapanır.</li>
 </ul>
@@ -61,7 +62,7 @@ table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0}th,td{b
 <li><b>Dijital imza yok.</b> Yükleyici henüz kod imzalı değil, bu yüzden Windows SmartScreen “bilinmeyen yayıncı” uyarısı gösterebilir. Dosyanın özetini yukarıdan doğrulayabilirsiniz.</li>
 <li>Bağlantı doğrudan kurulamazsa (sıkı güvenlik duvarı gibi) trafik üçüncü taraf bir ücretsiz aktarma (TURN) hizmetinden geçer; içerik şifreli kalır, ancak bu hizmet sağlayıcı tarafından bildirimsiz durdurulabilir ve bu durumda bazı ağlarda bağlantı kurulamayabilir.</li>
 <li><b>Parolanızı yalnızca güvendiğiniz kişiyle paylaşın.</b> Parolayı bilen biri, siz izin verirseniz bilgisayarınızı kullanabilir. <b>Sizi arayıp “parolanızı söyleyin”, “bankanız için bağlanın” diyen biri dolandırıcıdır; bağlantıyı kesin.</b> Geliştirici sizi arayarak parola veya banka bilgisi istemez.</li>
-<li>UAC/kilit ekranı kontrolü, Windows servisi olarak çalışma ve mağaza uygulaması (Android/iOS) bu sürümde yoktur. Telefondan bağlanmak için beta “tarayıcıdan bağlan” sayfası vardır; bu sayfa aktarma (TURN) kullanmaz, yalnızca doğrudan bağlantı kurulabilen ağlarda çalışır.</li>
+<li>UAC/kilit ekranı kontrolü, Windows servisi olarak çalışma ve mağaza uygulaması (Android/iOS) bu sürümde yoktur. Telefondan bağlanmak için beta “tarayıcıdan bağlan” sayfası vardır; bu sayfa gerektiğinde aynı aktarma (TURN) hizmetini kullanır ve WebSocket’in engellendiği ağlarda normal https ile sinyalleşir. Bazı ağlarda yine de bağlanamayabilir.</li>
 <li>Yazılım “olduğu gibi” sunulur; <a href="kosullar.html">Kullanım Koşulları</a> geçerlidir.</li>
 </ul></div>
 

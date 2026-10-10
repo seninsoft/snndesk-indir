@@ -206,6 +206,8 @@ footer .col a:hover { color: var(--blue); }
 .phone .pb i.o { background: #ff6a2b; }
 .beta-note { margin-top: 18px; padding: 12px 14px; border-radius: 14px; background: #fff7f2; border: 1px solid #ffd9c7; font-size: 13.5px; color: #5a3320; }
 
+.phoneimg { display: block; width: min(330px, 100%); height: auto; margin: 0 auto; }
+
 @media (max-width: 980px) {
   .cards .w { grid-template-columns: 1fr; }
   .feats, .steps { grid-template-columns: 1fr; }
@@ -363,13 +365,9 @@ footer .col a:hover { color: var(--blue); }
       <p class="sub">Uygulama kurmadan, telefonunuzun tarayıcısından bağlanın. Yolda veya evde dışarıdayken bilgisayarınıza bir göz atın ya da uzaktan yardım edin.</p>
       <ul class="ticks"><li>Bilgisayarda SNNDESK açık olsun, kimliği ve parolayı alın</li><li>Telefonda sayfayı açın, kimliği ve parolayı girin</li><li>Dokunarak tıklayın, iki parmakla sağ tık ve kaydırma yapın, ekran klavyesiyle yazın</li></ul>
       <a class="btn blue" href="https://seninsoft.com/snndesk-app/baglan.html">Tarayıcıdan bağlan (beta)</a>
-      <div class="beta-note"><b>Beta sürüm:</b> Yalnızca doğrudan bağlantı kurulabilen ağlarda çalışır (bazı mobil veri ağlarında bağlanamayabilir), dosya aktarımı yoktur ve bazı karakterler desteklenmeyebilir. Karşı tarafın onayı ve izinleri aynen geçerlidir.</div></div>
+      <div class="beta-note"><b>Beta sürüm:</b> Mobil veride de çalışması için yedek bağlantı yöntemi ve aktarma sunucusu kullanır, ancak bazı ağlarda yine de bağlanamayabilir. Dosya aktarımı yoktur ve bazı karakterler desteklenmeyebilir. Karşı tarafın onayı ve izinleri aynen geçerlidir.</div></div>
     <div class="blob rv">
-      <div class="phone"><div class="scr">
-        <div class="pt"><span>325 222 361</span><span>🔒 368 870</span></div>
-        <div class="pc"><div class="w1"><i></i><i></i><i></i></div><div class="w2"></div><div class="dot"></div></div>
-        <div class="pb"><i>Klavye</i><i>Tuşlar</i><i>Sağ tık</i><i class="o">Kes</i></div>
-      </div></div>
+      <img class="phoneimg" src="telefon.png" width="619" height="1190" alt="SNNDESK ile telefondan bilgisayara bağlanma: uzak masaüstü, klavye ve tuş çubuğu" loading="lazy">
     </div>
   </div>
 </div></section>
@@ -406,7 +404,7 @@ footer .col a:hover { color: var(--blue); }
     <details><summary>Birisi izinsiz bilgisayarıma bağlanabilir mi?</summary><p>Bağlanmak için parolanızı bilmesi ya da sizin onay vermeniz gerekir. Hatalı parola denemelerinde bağlantı geçici olarak kilitlenir; kontrol, dosya ve yazdırma izinleri varsayılan olarak kapalıdır. Hiçbir yazılım mutlak güvenlik garantisi vermez: parolanızı yalnızca güvendiğiniz kişilerle paylaşın.</p></details>
     <details><summary>Biri beni arayıp “bağlanın, parolayı söyleyin” derse ne yapmalıyım?</summary><p>Telefonu kapatın ve bağlanmayın. Dolandırıcılar “teknik destek” veya “banka” adıyla uzak masaüstü bağlantısı kurdurmaya çalışabilir. Senin Soft sizi arayarak parola, banka veya kart bilgisi istemez; bankalar da uzak masaüstü programı kurmanızı istemez.</p></details>
     <details><summary>Verilerim nerede tutuluyor?</summary><p>Ekran, dosya, pano ve sohbet içeriği sunucularımızda saklanmaz. Sunucuda yalnızca bağlantıyı kuran kısa mesajlar geçer (saklanmaz) ve istatistik için rastgele cihaz kimlikleri ile sayaçlar tutulur. Ayrıntılar: <a href="gizlilik.html" style="text-decoration:underline">Gizlilik ve KVKK Aydınlatma Metni</a>.</p></details>
-    <details><summary>Telefondan bilgisayarıma bağlanabilir miyim?</summary><p>Evet, beta olarak: telefonunuzun tarayıcısında <a href="https://seninsoft.com/snndesk-app/baglan.html" style="text-decoration:underline">seninsoft.com/snndesk-app/baglan.html</a> adresini açıp bilgisayarın kimliğini ve parolasını girersiniz; uygulama kurmanız gerekmez. Bilgisayarda SNNDESK açık olmalıdır. Beta sürümde yalnızca doğrudan bağlantı kurulabilen ağlarda çalışır, dosya aktarımı yoktur ve yazı yazarken bazı karakterler desteklenmeyebilir. Android/iOS mağaza uygulaması şimdilik yoktur.</p></details>
+    <details><summary>Telefondan bilgisayarıma bağlanabilir miyim?</summary><p>Evet, beta olarak: telefonunuzun tarayıcısında <a href="https://seninsoft.com/snndesk-app/baglan.html" style="text-decoration:underline">seninsoft.com/snndesk-app/baglan.html</a> adresini açıp bilgisayarın kimliğini ve parolasını girersiniz; uygulama kurmanız gerekmez. Bilgisayarda SNNDESK açık olmalıdır. Beta sürümde mobil veri dahil çoğu ağda çalışması hedeflenir (bazı ağlarda bağlanamayabilir), dosya aktarımı yoktur ve yazı yazarken bazı karakterler desteklenmeyebilir. Android/iOS mağaza uygulaması şimdilik yoktur.</p></details>
     <details><summary>Bağlantıyı nasıl keserim?</summary><p>Oturum sürerken ekranınızın üstündeki “Bitir” düğmesine ya da uygulamadaki “Bağlantıyı Kes”e basmanız yeterli.</p></details>
     <details><summary>Uygulamayı nasıl kaldırırım?</summary><p>Windows Ayarlar › Uygulamalar bölümünden SNNDESK'i seçip kaldırabilirsiniz.</p></details>
   </div>
